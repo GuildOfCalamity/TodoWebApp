@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using Microsoft.AspNetCore.Hosting.StaticWebAssets;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.InMemory;
 using Microsoft.EntityFrameworkCore.SqlServer;
@@ -7,7 +8,6 @@ using TodoWebApp.Logging;
 using TodoWebApp.Models;
 
 var builder = WebApplication.CreateBuilder(args);
-
 
 #region [Process any cmd line args]
 // grab "--port=1234" from the raw args
@@ -23,7 +23,6 @@ if (!string.IsNullOrEmpty(portArg) && int.TryParse(portArg, out var port))
 //    builder.WebHost.UseUrls("http://localhost:5050");
 //}
 #endregion
-
 
 #region [Wire-up Logging]
 var logFile = Path.Combine(builder.Environment.ContentRootPath, "Logs", "WebApp.log");
@@ -93,6 +92,8 @@ app.MapStaticAssets();
 // Middleware pipeline
 app.UseStaticFiles();  // serves "wwwroot/*"
 //app.UseStaticFiles(new StaticFileOptions { RequestPath = "/static" }); // serves "wwwroot/static/*"
+StaticWebAssetsLoader.UseStaticWebAssets(app.Environment, builder.Configuration);
+
 app.MapControllerRoute(name: "default", pattern: "{controller=TodoItems}/{action=Index}/{id?}");
 //app.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}").WithStaticAssets();
 
