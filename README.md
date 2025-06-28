@@ -17,6 +17,7 @@
 
 ## 📰 Description
 - A simple **ToDo List** web application utilizing **ASP.NET Core**, **Bootstrap** and **SQL/EntityFramework**.
+- Basic features include validation techniques for the data entry, a warning icon that appears when an item is past due, and the ability to sort by date added or due date.
 
 ## 🎛️ First Run
 
