@@ -1,0 +1,183 @@
+/* 1) Base colors */
+.dark-theme {
+    --bg: #181818;
+    --fg: #eaeaea;
+    --muted: #a0a0a0;
+    --accent: #0094FF;
+    --border: #2c2c2c;
+}
+
+    /* 2) Apply base */
+    .dark-theme,
+    .dark-theme body {
+        background-color: var(--bg);
+        color: var(--fg);
+    }
+
+        /* 3) Links & headings */
+        .dark-theme a {
+            color: var(--accent);
+        }
+
+            .dark-theme a:hover,
+            .dark-theme a:focus {
+                color: #7fccff;
+            }
+
+        .dark-theme h1,
+        .dark-theme label {
+            color: var(--fg);
+        }
+
+        /* 4) Tables */
+        .dark-theme .table {
+            background-color: var(--bg);
+            color: var(--fg);
+            border-color: var(--border);
+        }
+
+            .dark-theme .table th,
+            .dark-theme .table td {
+                border-top: 1px solid var(--border);
+            }
+
+        .dark-theme .table-striped tbody tr:nth-of-type(odd) {
+            background-color: #1e1e1e;
+        }
+
+        /* 5) Form controls */
+        .dark-theme .form-control {
+            background-color: var(--border);
+            color: var(--fg);
+            border: 1px solid #444;
+        }
+
+            .dark-theme .form-control:focus {
+                background-color: var(--border);
+                border-color: var(--accent);
+                box-shadow: 0 0 0 .2rem rgba(0,148,255,.25);
+            }
+
+        /* 6) Buttons */
+        .dark-theme .btn-primary {
+            background-color: var(--accent);
+            border-color: var(--accent);
+            color: #000;
+        }
+
+            .dark-theme .btn-primary:hover {
+                background-color: #5ebcff;
+                border-color: #0099ff;
+            }
+
+        .dark-theme .btn-secondary {
+            background-color: #2c2c2c;
+            border-color: #444;
+            color: var(--muted);
+        }
+
+            .dark-theme .btn-secondary:hover {
+                background-color: #3a3a3a;
+            }
+
+        /* 7) Validation messages */
+        .dark-theme .text-danger {
+            color: #ef554a;
+        }
+
+        /* 8) Date inputs */
+        .dark-theme input[type="date"] {
+            background-color: var(--border);
+            color: var(--fg);
+            border: 1px solid #444;
+        }
+
+/* 9) Utility: auto-switch if user prefers dark */
+@media (prefers-color-scheme: dark) {
+    body:not(.light-theme) { /* only if you don’t force light */
+        background-color: var(--bg);
+        color: var(--fg);
+    }
+}
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    padding: 2rem;
+    margin-bottom: 60px;
+    /*background-color: var(--bg);*/
+}
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+  text-align: start;
+}
+
+h1 {
+    margin-bottom: 1rem;
+}
+
+.table {
+    width: 100%;
+}
+
+.btn-primary {
+    margin-bottom: 1rem;
+}
+
+/* 1) Table containers */
+.dark-theme .table {
+    background-color: var(--bg) !important;
+    border: 1px solid var(--border) !important;
+    color: var(--fg) !important;
+}
+
+    /* 2) Header row */
+    .dark-theme .table thead th {
+        background-color: var(--border) !important;
+        color: var(--fg) !important;
+        border-bottom: 1px solid var(--border) !important;
+    }
+
+    /* 3) Body cells */
+    .dark-theme .table tbody td {
+        background-color: var(--bg) !important;
+        color: var(--fg) !important;
+        border-top: 1px solid var(--border) !important;
+    }
+
+/* 4) Striped rows */
+.dark-theme .table-striped tbody tr:nth-of-type(odd) td {
+    background-color: #1e1e1e !important;
+}
+
+/* 5) Remove Bootstrap’s .bg-white or other bg-* on tables */
+.dark-theme .table.bg-white,
+.dark-theme .table .bg-white {
+    background-color: var(--bg) !important;
+}
+
+.hero {
+    background: url('/images/meshBackground.png') center/cover no-repeat;
+}

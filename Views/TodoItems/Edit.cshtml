@@ -1,0 +1,78 @@
+﻿@model TodoWebApp.Models.TodoItem
+@{
+    ViewData["Title"] = "Edit Item";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="m-0">@ViewData["Title"]</h1>
+    <img src="~/images/favicon.png"
+         alt="Logo"
+         style="height:60px; width:auto;"
+         asp-append-version="true" />
+</div>
+
+<form asp-action="Edit" method="post">
+    <div class="mb-3">
+        <label asp-for="Title" class="form-label"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Details" class="form-label"></label>
+        <input asp-for="Details" class="form-control" />
+        <span asp-validation-for="Details" class="text-danger"></span>
+    </div>
+    <div class="mb-3 form-check">
+        <input asp-for="IsDone" class="form-check-input" />
+        <label asp-for="IsDone" class="form-check-label"></label>
+    </div>
+    <div class="mb-3">
+        <label asp-for="DueDate" class="form-label"></label>
+        <input asp-for="DueDate" class="form-control" type="date" />
+    </div>
+@*     
+    <div class="mb-3">
+        <label asp-for="EntryDate" class="form-label"></label>
+        <!-- readonly still posts back, so user can’t edit but the value goes to the controller -->
+        <input asp-for="EntryDate" class="form-control" readonly />
+        <!-- just in case you need a guaranteed POST (disabled wouldn’t submit) -->
+        <input type="hidden" asp-for="EntryDate" />
+    </div>
+ *@
+    <div class="mb-3">
+        <label class="form-label">@Html.DisplayNameFor(m => m.EntryDate)</label>
+        <!-- form-control-plaintext is bootstrap’s way to render read-only data in form layout -->
+        <p class="form-control-plaintext">
+            @Model.EntryDate?.ToString("dddd, MMMM dd yyyy")
+        </p>
+        <!-- We still need the value to post back to controller -->
+        <input type="hidden" asp-for="EntryDate" />
+    </div>
+
+    <!-- Submit the changes, if any. -->
+    <button type="submit" class="btn btn-success">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    @* If the controller set ShowMessagePopup, emit a script to show it *@
+    @if (TempData["ShowMessagePopup"] as bool? == true)
+    {
+        var htmlMsg = TempData["PopupMessage"] as string;
+        <text>
+            <script>
+                document.addEventListener("DOMContentLoaded", function()
+                {
+                  // Option A: simple JS alert
+                  //alert("Please fix these errors:\n\n" + "@Html.Raw(htmlMsg)".replace(/<br\/>/g, "\n"));
+
+                  // Option B: Bootstrap modal (if you have one in your _Layout)
+                  $('#myValidationModal .modal-body').html("@Html.Raw(htmlMsg)");
+                  $('#myValidationModal').modal('show');
+                });
+            </script>
+        </text>
+    }
+}

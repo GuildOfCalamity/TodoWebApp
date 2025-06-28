@@ -1,0 +1,855 @@
+2025-06-27 13:57:29 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (27ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+WHERE [t].[Id] = @__p_0
+2025-06-27 13:57:34 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+WHERE [t].[Id] = @__p_0
+2025-06-27 13:57:34 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (2ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [TodoItems]
+OUTPUT 1
+WHERE [Id] = @p0;
+2025-06-27 13:57:34 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 14:19:17 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:7077
+2025-06-27 14:19:17 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5116
+2025-06-27 14:19:17 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-27 14:19:17 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-27 14:19:17 [Information] Microsoft.Hosting.Lifetime: Content root path: D:\source\repos\ASP.NET\TodoWebApp
+2025-06-27 14:19:19 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (26ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 14:19:22 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (25ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+WHERE [t].[Id] = @__p_0
+2025-06-27 14:19:27 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 14:19:29 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+WHERE [t].[Id] = @__p_0
+2025-06-27 14:19:49 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:7077
+2025-06-27 14:19:49 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5116
+2025-06-27 14:19:49 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-27 14:19:49 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-27 14:19:49 [Information] Microsoft.Hosting.Lifetime: Content root path: D:\source\repos\ASP.NET\TodoWebApp
+2025-06-27 14:19:51 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 14:19:53 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (24ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+WHERE [t].[Id] = @__p_0
+2025-06-27 14:20:12 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:7077
+2025-06-27 14:20:12 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5116
+2025-06-27 14:20:12 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-27 14:20:12 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-27 14:20:12 [Information] Microsoft.Hosting.Lifetime: Content root path: D:\source\repos\ASP.NET\TodoWebApp
+2025-06-27 14:20:13 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (25ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 14:20:16 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (24ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+WHERE [t].[Id] = @__p_0
+2025-06-27 14:21:23 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:7077
+2025-06-27 14:21:23 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5116
+2025-06-27 14:21:23 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-27 14:21:23 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-27 14:21:23 [Information] Microsoft.Hosting.Lifetime: Content root path: D:\source\repos\ASP.NET\TodoWebApp
+2025-06-27 14:21:24 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (23ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 14:21:26 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (25ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+WHERE [t].[Id] = @__p_0
+2025-06-27 14:21:50 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:7077
+2025-06-27 14:21:50 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5116
+2025-06-27 14:21:50 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-27 14:21:50 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-27 14:21:50 [Information] Microsoft.Hosting.Lifetime: Content root path: D:\source\repos\ASP.NET\TodoWebApp
+2025-06-27 14:21:52 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (23ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 14:21:54 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (27ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+WHERE [t].[Id] = @__p_0
+2025-06-27 14:22:14 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:7077
+2025-06-27 14:22:14 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5116
+2025-06-27 14:22:14 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-27 14:22:14 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-27 14:22:14 [Information] Microsoft.Hosting.Lifetime: Content root path: D:\source\repos\ASP.NET\TodoWebApp
+2025-06-27 14:22:15 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (24ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 14:22:17 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (26ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+WHERE [t].[Id] = @__p_0
+2025-06-27 14:22:40 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:7077
+2025-06-27 14:22:40 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5116
+2025-06-27 14:22:40 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-27 14:22:40 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-27 14:22:40 [Information] Microsoft.Hosting.Lifetime: Content root path: D:\source\repos\ASP.NET\TodoWebApp
+2025-06-27 14:22:42 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 14:22:44 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (24ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+WHERE [t].[Id] = @__p_0
+2025-06-27 14:22:54 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 14:23:28 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:7077
+2025-06-27 14:23:28 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5116
+2025-06-27 14:23:28 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-27 14:23:28 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-27 14:23:28 [Information] Microsoft.Hosting.Lifetime: Content root path: D:\source\repos\ASP.NET\TodoWebApp
+2025-06-27 14:23:30 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (25ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 14:23:32 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (25ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+WHERE [t].[Id] = @__p_0
+2025-06-27 14:23:48 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:7077
+2025-06-27 14:23:48 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5116
+2025-06-27 14:23:48 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-27 14:23:48 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-27 14:23:48 [Information] Microsoft.Hosting.Lifetime: Content root path: D:\source\repos\ASP.NET\TodoWebApp
+2025-06-27 14:23:49 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (22ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 14:23:51 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (23ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+WHERE [t].[Id] = @__p_0
+2025-06-27 14:24:14 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:7077
+2025-06-27 14:24:14 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5116
+2025-06-27 14:24:14 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-27 14:24:14 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-27 14:24:14 [Information] Microsoft.Hosting.Lifetime: Content root path: D:\source\repos\ASP.NET\TodoWebApp
+2025-06-27 14:24:15 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (24ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 14:24:17 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (27ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+WHERE [t].[Id] = @__p_0
+2025-06-27 14:24:38 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:7077
+2025-06-27 14:24:38 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5116
+2025-06-27 14:24:38 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-27 14:24:38 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-27 14:24:38 [Information] Microsoft.Hosting.Lifetime: Content root path: D:\source\repos\ASP.NET\TodoWebApp
+2025-06-27 14:24:40 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (22ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 14:24:42 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (26ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+WHERE [t].[Id] = @__p_0
+2025-06-27 14:24:58 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:7077
+2025-06-27 14:24:58 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5116
+2025-06-27 14:24:58 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-27 14:24:58 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-27 14:24:58 [Information] Microsoft.Hosting.Lifetime: Content root path: D:\source\repos\ASP.NET\TodoWebApp
+2025-06-27 14:25:00 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 14:25:02 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (25ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+WHERE [t].[Id] = @__p_0
+2025-06-27 14:25:28 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:7077
+2025-06-27 14:25:28 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5116
+2025-06-27 14:25:28 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-27 14:25:28 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-27 14:25:28 [Information] Microsoft.Hosting.Lifetime: Content root path: D:\source\repos\ASP.NET\TodoWebApp
+2025-06-27 14:25:30 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (22ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 14:25:32 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (30ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+WHERE [t].[Id] = @__p_0
+2025-06-27 14:27:50 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+2025-06-27 14:27:50 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5051
+2025-06-27 14:27:50 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-27 14:27:50 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-27 14:27:50 [Information] Microsoft.Hosting.Lifetime: Content root path: D:\source\repos\ASP.NET\TodoWebApp
+2025-06-27 14:27:52 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (20ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 14:28:07 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 14:28:10 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (26ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+WHERE [t].[Id] = @__p_0
+2025-06-27 14:30:13 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+2025-06-27 14:30:13 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5051
+2025-06-27 14:30:13 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-27 14:30:13 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-27 14:30:13 [Information] Microsoft.Hosting.Lifetime: Content root path: D:\source\repos\ASP.NET\TodoWebApp
+2025-06-27 14:30:16 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 14:30:19 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (25ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+WHERE [t].[Id] = @__p_0
+2025-06-27 14:34:39 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+2025-06-27 14:34:39 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5051
+2025-06-27 14:34:39 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-27 14:34:39 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-27 14:34:39 [Information] Microsoft.Hosting.Lifetime: Content root path: D:\source\repos\ASP.NET\TodoWebApp
+2025-06-27 14:34:41 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 14:34:43 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (25ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+WHERE [t].[Id] = @__p_0
+2025-06-27 14:34:51 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 14:35:38 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 500), @p1='?' (DbType = DateTime2), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Boolean), @p4='?' (Size = 100)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [TodoItems] ([Details], [DueDate], [EntryDate], [IsDone], [Title])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-27 14:35:38 [Information] TodoWebApp.Controllers.TodoItemsController: 7 => Escalation 3868: Halo Car Wash Innes Rd 7713 => False => 6/26/2025 12:00:00 AM
+2025-06-27 14:35:38 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 14:37:43 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+2025-06-27 14:37:43 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5051
+2025-06-27 14:37:44 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-27 14:37:44 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-27 14:37:44 [Information] Microsoft.Hosting.Lifetime: Content root path: D:\source\repos\ASP.NET\TodoWebApp
+2025-06-27 14:37:45 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (25ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 14:37:49 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (26ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+WHERE [t].[Id] = @__p_0
+2025-06-27 14:38:00 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 14:40:58 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+2025-06-27 14:40:58 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5051
+2025-06-27 14:40:58 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-27 14:40:58 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-27 14:40:58 [Information] Microsoft.Hosting.Lifetime: Content root path: D:\source\repos\ASP.NET\TodoWebApp
+2025-06-27 14:40:59 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (21ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 14:42:01 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (23ms) [Parameters=[@p0='?' (Size = 500), @p1='?' (DbType = DateTime2), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Boolean), @p4='?' (Size = 100)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [TodoItems] ([Details], [DueDate], [EntryDate], [IsDone], [Title])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-27 14:42:01 [Information] TodoWebApp.Controllers.TodoItemsController: 8 => Temp item for testing => False => 6/9/2025 12:00:00 AM
+2025-06-27 14:42:01 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 14:42:04 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+WHERE [t].[Id] = @__p_0
+2025-06-27 14:42:10 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (3ms) [Parameters=[@p5='?' (DbType = Int32), @p0='?' (Size = 500), @p1='?' (DbType = DateTime2), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Boolean), @p4='?' (Size = 100)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TodoItems] SET [Details] = @p0, [DueDate] = @p1, [EntryDate] = @p2, [IsDone] = @p3, [Title] = @p4
+OUTPUT 1
+WHERE [Id] = @p5;
+2025-06-27 14:42:10 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 14:42:13 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+WHERE [t].[Id] = @__p_0
+2025-06-27 14:42:20 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+WHERE [t].[Id] = @__p_0
+2025-06-27 14:42:20 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+DELETE FROM [TodoItems]
+OUTPUT 1
+WHERE [Id] = @p0;
+2025-06-27 14:42:20 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 15:19:37 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+2025-06-27 15:19:37 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5051
+2025-06-27 15:19:37 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-27 15:19:37 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-27 15:19:37 [Information] Microsoft.Hosting.Lifetime: Content root path: D:\source\repos\ASP.NET\TodoWebApp
+2025-06-27 15:19:39 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (25ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 15:20:18 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 15:20:23 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (23ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+WHERE [t].[Id] = @__p_0
+2025-06-27 15:21:15 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (4ms) [Parameters=[@p5='?' (DbType = Int32), @p0='?' (Size = 500), @p1='?' (DbType = DateTime2), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Boolean), @p4='?' (Size = 100)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TodoItems] SET [Details] = @p0, [DueDate] = @p1, [EntryDate] = @p2, [IsDone] = @p3, [Title] = @p4
+OUTPUT 1
+WHERE [Id] = @p5;
+2025-06-27 15:21:15 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 15:21:22 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 15:21:26 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+WHERE [t].[Id] = @__p_0
+2025-06-27 15:21:34 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (1ms) [Parameters=[@p5='?' (DbType = Int32), @p0='?' (Size = 500), @p1='?' (DbType = DateTime2), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Boolean), @p4='?' (Size = 100)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TodoItems] SET [Details] = @p0, [DueDate] = @p1, [EntryDate] = @p2, [IsDone] = @p3, [Title] = @p4
+OUTPUT 1
+WHERE [Id] = @p5;
+2025-06-27 15:21:34 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 15:22:33 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+2025-06-27 15:22:33 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5051
+2025-06-27 15:22:33 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-27 15:22:33 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-27 15:22:33 [Information] Microsoft.Hosting.Lifetime: Content root path: D:\source\repos\ASP.NET\TodoWebApp
+2025-06-27 15:22:35 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (18ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 15:23:40 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+2025-06-27 15:23:40 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5051
+2025-06-27 15:23:40 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-27 15:23:40 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-27 15:23:40 [Information] Microsoft.Hosting.Lifetime: Content root path: D:\source\repos\ASP.NET\TodoWebApp
+2025-06-27 15:23:42 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (19ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 17:10:58 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (218ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+CREATE DATABASE [TodoDb];
+2025-06-27 17:10:59 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (190ms) [Parameters=[], CommandType='Text', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [TodoDb] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2025-06-27 17:10:59 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2025-06-27 17:10:59 [Information] Microsoft.EntityFrameworkCore.Migrations: Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-06-27 17:10:59 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (11ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+2025-06-27 17:10:59 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+2025-06-27 17:10:59 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT 1
+2025-06-27 17:10:59 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-06-27 17:10:59 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-06-27 17:10:59 [Information] Microsoft.EntityFrameworkCore.Migrations: Applying migration '20250627211035_InitialCreate'.
+2025-06-27 17:10:59 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [TodoItems] (
+    [Id] int NOT NULL IDENTITY,
+    [Title] nvarchar(100) NOT NULL,
+    [Details] nvarchar(500) NOT NULL,
+    [IsDone] bit NOT NULL,
+    [DueDate] datetime2 NULL,
+    [EntryDate] datetime2 NULL,
+    CONSTRAINT [PK_TodoItems] PRIMARY KEY ([Id])
+);
+2025-06-27 17:10:59 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20250627211035_InitialCreate', N'9.0.6');
+2025-06-27 17:10:59 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result
+2025-06-27 17:14:26 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+2025-06-27 17:14:26 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5051
+2025-06-27 17:14:26 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-27 17:14:26 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-27 17:14:26 [Information] Microsoft.Hosting.Lifetime: Content root path: C:\Users\Home\source\repos\ASP.NET\TodoWebApp
+2025-06-27 17:14:33 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (43ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 17:15:36 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (27ms) [Parameters=[@p0='?' (Size = 500), @p1='?' (DbType = DateTime2), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Boolean), @p4='?' (Size = 100)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [TodoItems] ([Details], [DueDate], [EntryDate], [IsDone], [Title])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-27 17:15:36 [Information] TodoWebApp.Controllers.TodoItemsController: 1 => Sample item for first DB entry => False => 6/27/2025 12:00:00 AM
+2025-06-27 17:15:36 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 17:15:39 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+WHERE [t].[Id] = @__p_0
+2025-06-27 17:15:44 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 17:22:20 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+2025-06-27 17:22:20 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5051
+2025-06-27 17:22:20 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-27 17:22:20 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-27 17:22:20 [Information] Microsoft.Hosting.Lifetime: Content root path: C:\Users\Home\source\repos\ASP.NET\TodoWebApp
+2025-06-27 17:22:23 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (29ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 17:22:33 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 17:23:37 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+2025-06-27 17:23:37 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5051
+2025-06-27 17:23:37 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-27 17:23:37 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-27 17:23:37 [Information] Microsoft.Hosting.Lifetime: Content root path: C:\Users\Home\source\repos\ASP.NET\TodoWebApp
+2025-06-27 17:23:39 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (40ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 17:23:43 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (24ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+WHERE [t].[Id] = @__p_0
+2025-06-27 17:23:47 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 17:23:49 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+WHERE [t].[Id] = @__p_0
+2025-06-27 17:23:56 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (3ms) [Parameters=[@p5='?' (DbType = Int32), @p0='?' (Size = 500), @p1='?' (DbType = DateTime2), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Boolean), @p4='?' (Size = 100)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TodoItems] SET [Details] = @p0, [DueDate] = @p1, [EntryDate] = @p2, [IsDone] = @p3, [Title] = @p4
+OUTPUT 1
+WHERE [Id] = @p5;
+2025-06-27 17:23:56 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 17:23:58 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+WHERE [t].[Id] = @__p_0
+2025-06-27 17:24:04 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 17:24:35 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+2025-06-27 17:24:35 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5051
+2025-06-27 17:24:35 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-27 17:24:35 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-27 17:24:35 [Information] Microsoft.Hosting.Lifetime: Content root path: C:\Users\Home\source\repos\ASP.NET\TodoWebApp
+2025-06-27 17:24:37 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (36ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 17:24:40 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (26ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+WHERE [t].[Id] = @__p_0
+2025-06-27 17:24:47 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 17:24:49 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+WHERE [t].[Id] = @__p_0
+2025-06-27 17:24:50 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 17:24:52 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+WHERE [t].[Id] = @__p_0
+2025-06-27 17:24:54 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 17:26:26 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+2025-06-27 17:26:26 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5051
+2025-06-27 17:26:26 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-27 17:26:26 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-27 17:26:26 [Information] Microsoft.Hosting.Lifetime: Content root path: C:\Users\Home\source\repos\ASP.NET\TodoWebApp
+2025-06-27 17:26:28 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (27ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-27 17:26:50 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (26ms) [Parameters=[@p0='?' (Size = 500), @p1='?' (DbType = DateTime2), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Boolean), @p4='?' (Size = 100)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [TodoItems] ([Details], [DueDate], [EntryDate], [IsDone], [Title])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-06-27 17:26:50 [Information] TodoWebApp.Controllers.TodoItemsController: 2 => Gather food at the grocery store => False => 6/28/2025 12:00:00 AM
+2025-06-27 17:26:50 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-28 11:20:59 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+2025-06-28 11:20:59 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5051
+2025-06-28 11:20:59 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-28 11:20:59 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-28 11:20:59 [Information] Microsoft.Hosting.Lifetime: Content root path: C:\Users\Home\source\repos\ASP.NET\TodoWebApp
+2025-06-28 11:21:02 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (30ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-28 11:23:23 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+2025-06-28 11:23:23 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5051
+2025-06-28 11:23:23 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-28 11:23:23 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-28 11:23:23 [Information] Microsoft.Hosting.Lifetime: Content root path: C:\Users\Home\source\repos\ASP.NET\TodoWebApp
+2025-06-28 11:23:25 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (33ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-28 11:24:40 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+2025-06-28 11:24:40 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5051
+2025-06-28 11:24:40 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-28 11:24:40 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-28 11:24:40 [Information] Microsoft.Hosting.Lifetime: Content root path: C:\Users\Home\source\repos\ASP.NET\TodoWebApp
+2025-06-28 11:24:43 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (28ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-28 11:25:24 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+2025-06-28 11:25:25 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5051
+2025-06-28 11:25:25 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-28 11:25:25 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-28 11:25:25 [Information] Microsoft.Hosting.Lifetime: Content root path: C:\Users\Home\source\repos\ASP.NET\TodoWebApp
+2025-06-28 11:25:27 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (28ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-28 11:26:00 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+2025-06-28 11:26:00 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5051
+2025-06-28 11:26:00 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-28 11:26:00 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-28 11:26:00 [Information] Microsoft.Hosting.Lifetime: Content root path: C:\Users\Home\source\repos\ASP.NET\TodoWebApp
+2025-06-28 11:26:03 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (30ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-28 11:26:18 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (30ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+WHERE [t].[Id] = @__p_0
+2025-06-28 11:26:21 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-28 11:27:17 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+2025-06-28 11:27:17 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5051
+2025-06-28 11:27:17 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-28 11:27:17 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-28 11:27:17 [Information] Microsoft.Hosting.Lifetime: Content root path: C:\Users\Home\source\repos\ASP.NET\TodoWebApp
+2025-06-28 11:27:19 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (32ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-28 11:27:43 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+2025-06-28 11:27:43 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5051
+2025-06-28 11:27:43 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-28 11:27:43 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-28 11:27:43 [Information] Microsoft.Hosting.Lifetime: Content root path: C:\Users\Home\source\repos\ASP.NET\TodoWebApp
+2025-06-28 11:27:45 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (34ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-28 11:29:40 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+2025-06-28 11:29:40 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5051
+2025-06-28 11:29:40 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-28 11:29:40 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-28 11:29:40 [Information] Microsoft.Hosting.Lifetime: Content root path: C:\Users\Home\source\repos\ASP.NET\TodoWebApp
+2025-06-28 11:29:45 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (82ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-28 11:30:10 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+2025-06-28 11:30:10 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5051
+2025-06-28 11:30:10 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-28 11:30:10 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-28 11:30:10 [Information] Microsoft.Hosting.Lifetime: Content root path: C:\Users\Home\source\repos\ASP.NET\TodoWebApp
+2025-06-28 11:30:15 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (111ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-28 11:44:35 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+2025-06-28 11:44:35 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5051
+2025-06-28 11:44:35 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-28 11:44:35 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-28 11:44:35 [Information] Microsoft.Hosting.Lifetime: Content root path: C:\Users\Home\source\repos\ASP.NET\TodoWebApp
+2025-06-28 11:44:38 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (40ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-28 11:44:45 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-28 11:44:46 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (31ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+WHERE [t].[Id] = @__p_0
+2025-06-28 11:44:54 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (6ms) [Parameters=[@p5='?' (DbType = Int32), @p0='?' (Size = 500), @p1='?' (DbType = DateTime2), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Boolean), @p4='?' (Size = 100)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TodoItems] SET [Details] = @p0, [DueDate] = @p1, [EntryDate] = @p2, [IsDone] = @p3, [Title] = @p4
+OUTPUT 1
+WHERE [Id] = @p5;
+2025-06-28 11:44:54 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-28 11:44:57 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+WHERE [t].[Id] = @__p_0
+2025-06-28 11:45:23 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (1ms) [Parameters=[@p5='?' (DbType = Int32), @p0='?' (Size = 500), @p1='?' (DbType = DateTime2), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Boolean), @p4='?' (Size = 100)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TodoItems] SET [Details] = @p0, [DueDate] = @p1, [EntryDate] = @p2, [IsDone] = @p3, [Title] = @p4
+OUTPUT 1
+WHERE [Id] = @p5;
+2025-06-28 11:45:23 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-28 11:45:25 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+WHERE [t].[Id] = @__p_0
+2025-06-28 11:45:33 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (1ms) [Parameters=[@p5='?' (DbType = Int32), @p0='?' (Size = 500), @p1='?' (DbType = DateTime2), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Boolean), @p4='?' (Size = 100)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TodoItems] SET [Details] = @p0, [DueDate] = @p1, [EntryDate] = @p2, [IsDone] = @p3, [Title] = @p4
+OUTPUT 1
+WHERE [Id] = @p5;
+2025-06-28 11:45:33 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-28 11:45:42 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+WHERE [t].[Id] = @__p_0
+2025-06-28 11:45:50 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (3ms) [Parameters=[@p5='?' (DbType = Int32), @p0='?' (Size = 500), @p1='?' (DbType = DateTime2), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Boolean), @p4='?' (Size = 100)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TodoItems] SET [Details] = @p0, [DueDate] = @p1, [EntryDate] = @p2, [IsDone] = @p3, [Title] = @p4
+OUTPUT 1
+WHERE [Id] = @p5;
+2025-06-28 11:45:50 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+2025-06-28 11:49:40 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+2025-06-28 11:49:40 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5051
+2025-06-28 11:49:40 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-28 11:49:40 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-28 11:49:40 [Information] Microsoft.Hosting.Lifetime: Content root path: C:\Users\Home\source\repos\ASP.NET\TodoWebApp
+2025-06-28 11:49:42 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (28ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+ORDER BY [t].[Id]
+2025-06-28 11:49:45 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+ORDER BY [t].[DueDate]
+2025-06-28 11:49:47 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+ORDER BY [t].[DueDate] DESC
+2025-06-28 11:49:49 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+ORDER BY [t].[DueDate]
+2025-06-28 11:49:52 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+ORDER BY [t].[DueDate] DESC
+2025-06-28 11:49:54 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+ORDER BY [t].[DueDate]
+2025-06-28 11:55:21 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+2025-06-28 11:55:21 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5051
+2025-06-28 11:55:21 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-28 11:55:21 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-28 11:55:21 [Information] Microsoft.Hosting.Lifetime: Content root path: C:\Users\Home\source\repos\ASP.NET\TodoWebApp
+2025-06-28 11:55:23 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (31ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+ORDER BY [t].[Id]
+2025-06-28 11:55:29 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+ORDER BY [t].[DueDate]
+2025-06-28 11:55:30 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+ORDER BY [t].[DueDate] DESC
+2025-06-28 11:57:25 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+2025-06-28 11:57:25 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5051
+2025-06-28 11:57:25 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-28 11:57:25 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-28 11:57:25 [Information] Microsoft.Hosting.Lifetime: Content root path: C:\Users\Home\source\repos\ASP.NET\TodoWebApp
+2025-06-28 11:57:28 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (27ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+ORDER BY [t].[Id]
+2025-06-28 11:57:56 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+2025-06-28 11:57:56 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5051
+2025-06-28 11:57:56 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-28 11:57:56 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-28 11:57:56 [Information] Microsoft.Hosting.Lifetime: Content root path: C:\Users\Home\source\repos\ASP.NET\TodoWebApp
+2025-06-28 11:57:58 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (29ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+ORDER BY [t].[Id]
+2025-06-28 11:59:33 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+2025-06-28 11:59:33 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5051
+2025-06-28 11:59:33 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-28 11:59:33 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-28 11:59:33 [Information] Microsoft.Hosting.Lifetime: Content root path: C:\Users\Home\source\repos\ASP.NET\TodoWebApp
+2025-06-28 11:59:36 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (43ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+ORDER BY [t].[Id]
+2025-06-28 12:00:11 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+ORDER BY [t].[Id]
+2025-06-28 12:00:28 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+ORDER BY [t].[Id]
+2025-06-28 12:01:06 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (1ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+ORDER BY [t].[Id]
+2025-06-28 12:04:58 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+2025-06-28 12:04:58 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5051
+2025-06-28 12:04:58 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-28 12:04:58 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-28 12:04:58 [Information] Microsoft.Hosting.Lifetime: Content root path: C:\Users\Home\source\repos\ASP.NET\TodoWebApp
+2025-06-28 12:05:00 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (33ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+ORDER BY [t].[Id]
+2025-06-28 12:06:10 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+2025-06-28 12:06:10 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5051
+2025-06-28 12:06:11 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-28 12:06:11 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-28 12:06:11 [Information] Microsoft.Hosting.Lifetime: Content root path: C:\Users\Home\source\repos\ASP.NET\TodoWebApp
+2025-06-28 12:06:13 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (29ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+ORDER BY [t].[Id]
+2025-06-28 12:08:36 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+2025-06-28 12:08:36 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5051
+2025-06-28 12:08:36 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-28 12:08:36 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-28 12:08:36 [Information] Microsoft.Hosting.Lifetime: Content root path: C:\Users\Home\source\repos\ASP.NET\TodoWebApp
+2025-06-28 12:08:38 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (28ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+ORDER BY [t].[Id]
+2025-06-28 12:10:07 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+2025-06-28 12:10:07 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5051
+2025-06-28 12:10:07 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-28 12:10:07 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-28 12:10:07 [Information] Microsoft.Hosting.Lifetime: Content root path: C:\Users\Home\source\repos\ASP.NET\TodoWebApp
+2025-06-28 12:10:10 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (29ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+ORDER BY [t].[Id]
+2025-06-28 12:10:20 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+ORDER BY [t].[Id]
+2025-06-28 12:10:27 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+ORDER BY [t].[Id]
+2025-06-28 12:12:34 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+2025-06-28 12:12:34 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5051
+2025-06-28 12:12:34 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-28 12:12:34 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-28 12:12:34 [Information] Microsoft.Hosting.Lifetime: Content root path: C:\Users\Home\source\repos\ASP.NET\TodoWebApp
+2025-06-28 12:12:36 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (34ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+ORDER BY [t].[Id]
+2025-06-28 12:12:53 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+ORDER BY [t].[Id]
+2025-06-28 12:22:08 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+2025-06-28 12:22:08 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5051
+2025-06-28 12:22:08 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-28 12:22:08 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-28 12:22:08 [Information] Microsoft.Hosting.Lifetime: Content root path: C:\Users\Home\source\repos\ASP.NET\TodoWebApp
+2025-06-28 12:22:10 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (26ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+ORDER BY [t].[Id]
+2025-06-28 12:22:17 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (30ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+WHERE [t].[Id] = @__p_0
+2025-06-28 12:22:31 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (3ms) [Parameters=[@p5='?' (DbType = Int32), @p0='?' (Size = 500), @p1='?' (DbType = DateTime2), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Boolean), @p4='?' (Size = 100)], CommandType='Text', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [TodoItems] SET [Details] = @p0, [DueDate] = @p1, [EntryDate] = @p2, [IsDone] = @p3, [Title] = @p4
+OUTPUT 1
+WHERE [Id] = @p5;
+2025-06-28 12:22:31 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (0ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+ORDER BY [t].[Id]
+2025-06-28 12:58:15 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+2025-06-28 12:58:15 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5051
+2025-06-28 12:58:15 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-28 12:58:15 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-28 12:58:15 [Information] Microsoft.Hosting.Lifetime: Content root path: C:\Users\Home\source\repos\ASP.NET\TodoWebApp
+2025-06-28 12:58:18 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (27ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+ORDER BY [t].[Id]
+2025-06-28 12:58:54 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+2025-06-28 12:58:54 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5051
+2025-06-28 12:58:54 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-28 12:58:54 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-28 12:58:54 [Information] Microsoft.Hosting.Lifetime: Content root path: C:\Users\Home\source\repos\ASP.NET\TodoWebApp
+2025-06-28 12:58:57 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (36ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+ORDER BY [t].[Id]
+2025-06-28 12:59:45 [Information] Microsoft.Hosting.Lifetime: Now listening on: http://localhost:5050
+2025-06-28 12:59:45 [Information] Microsoft.Hosting.Lifetime: Now listening on: https://localhost:5051
+2025-06-28 12:59:45 [Information] Microsoft.Hosting.Lifetime: Application started. Press Ctrl+C to shut down.
+2025-06-28 12:59:45 [Information] Microsoft.Hosting.Lifetime: Hosting environment: Development
+2025-06-28 12:59:45 [Information] Microsoft.Hosting.Lifetime: Content root path: C:\Users\Home\source\repos\ASP.NET\TodoWebApp
+2025-06-28 12:59:47 [Information] Microsoft.EntityFrameworkCore.Database.Command: Executed DbCommand (29ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+SELECT [t].[Id], [t].[Details], [t].[DueDate], [t].[EntryDate], [t].[IsDone], [t].[Title]
+FROM [TodoItems] AS [t]
+ORDER BY [t].[Id]

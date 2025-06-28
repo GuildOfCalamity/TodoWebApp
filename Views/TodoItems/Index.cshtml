@@ -1,0 +1,74 @@
+﻿@model IEnumerable<TodoWebApp.Models.TodoItem>
+@{
+    ViewData["Title"] = "ToDo List";
+    var currentSort = ViewData["CurrentSort"] as string;
+    var dueSortParam = ViewData["DueSortParm"] as string;
+    var addedSortParam = ViewData["AddedSortParm"] as string;
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="m-0">@ViewData["Title"]</h1>
+    <img src="~/images/favicon.png"
+         alt="Logo"
+         style="height:60px; width:auto;"
+         asp-append-version="true" />
+</div>
+
+<p><a asp-action="Create" class="btn btn-primary">Add New</a></p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Done</th>
+            <th>Title</th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@addedSortParam">
+                    Added
+                    @if (currentSort == "Added")
+                    {
+                        <span>&#9650;</span>  @* ascending *@
+                    }
+                    else if (currentSort == "added_desc")
+                    {
+                        <span>&#9660;</span>  @* descending *@
+                    }
+                </a>
+            </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@dueSortParam">
+                    Due
+                    @if (currentSort == "Due")
+                    {
+                        <span>&#9650;</span>   @* ascending *@
+                    }
+                    else if (currentSort == "due_desc")
+                    {
+                        <span>&#9660;</span>   @* descending *@
+                    }
+                </a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td><input type="checkbox" asp-for="@item.IsDone" disabled /></td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">@item.Title</a>
+                    @* If we have a due date and it’s before today show a warning symbol *@
+                    @if (item.DueDate.HasValue && item.DueDate.Value.Date < DateTime.Today && !item.IsDone)
+                    {
+                        <span class="text-warning fs-5" title="Item is past due">&#9888;</span>
+                    }
+                </td>
+                <td>@item.EntryDate?.ToShortDateString()</td>
+                <td>@item.DueDate?.ToShortDateString()</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
