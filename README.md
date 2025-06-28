@@ -20,7 +20,7 @@
 
 ## 🎛️ First Run
 
-- First setup the database by running the following command in the Package Manager Console:
+- First setup the database by running the following commands in the Package Manager Console:
 
 ```bash
 PM> dotnet tool install --global dotnet-ef
@@ -28,7 +28,7 @@ PM> dotnet ef migrations add InitialCreate
 PM> dotnet ef database update
 ```
 
-- Then launch the application using VisualStudio or the following command:
+- Then launch the application using **VisualStudio** or the following command:
 
 	- `C:\> TodoWebApp --port=5050`
 
