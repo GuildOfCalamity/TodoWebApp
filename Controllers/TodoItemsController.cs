@@ -46,12 +46,15 @@ namespace TodoWebApp.Controllers
                     items = items.OrderByDescending(t => t.EntryDate);
                     break;
                 default:
-                    items = items.OrderBy(t => t.Id);
+                    // Incomplete (IsDone=false) first, then by DueDate ascending
+                    items = items
+                      .OrderBy(t => t.IsDone)         // false before true
+                      .ThenBy(t => t.DueDate);
                     break;
             }
 
-            var list = await items.AsNoTracking().ToListAsync();
-            return View(list);
+            var model = await items.AsNoTracking().ToListAsync();
+            return View(model);
         }
 
         // HttpGet: /TodoItems
