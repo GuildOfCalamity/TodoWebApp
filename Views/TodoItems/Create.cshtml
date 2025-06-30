@@ -1,11 +1,11 @@
 ﻿@model TodoWebApp.Models.TodoItem
 @{
     ViewData["Title"] = "Create Item";
-    //@if (Model != null && Model.EntryDate == null) { Model.EntryDate = DateTime.Now; }
+    //if (Model != null && Model.DueDate == default) { Model.DueDate = DateTime.Now.AddDays(1); }
 }
 
 <div class="d-flex justify-content-between align-items-center mb-3">
-    <h1 class="m-0">@ViewData["Title"]</h1>
+    <h1 class="m-0 opacity-50">@ViewData["Title"]</h1>
     <img src="~/images/favicon.png"
          alt="Logo"
          style="height:60px; width:auto;"
@@ -15,21 +15,30 @@
 <form asp-action="Create" method="post">
     <div class="mb-3">
         <label asp-for="Title" class="form-label"></label>
-        <input asp-for="Title" class="form-control" />
+        <input asp-for="Title" class="form-control font-monospace" />
         <span asp-validation-for="Title" class="text-danger"></span>
     </div>
+@*     
     <div class="mb-3">
         <label asp-for="Details" class="form-label"></label>
         <input asp-for="Details" class="form-control" />
         <span asp-validation-for="Details" class="text-danger"></span>
     </div>
+ *@
+    <div class="mb-3">
+      <label asp-for="Details" class="form-label"></label>
+      @* We use textarea for the TodoItem.Details so we can support multiple lines and pressing [Enter]. *@
+        <textarea asp-for="Details" class="form-control font-monospace" rows="10"></textarea>
+      <span asp-validation-for="Details" class="text-danger"></span>
+    </div>
     <div class="mb-3 form-check">
-        <input asp-for="IsDone" class="form-check-input" />
-        <label asp-for="IsDone" class="form-check-label"></label>
+        <input asp-for="IsDone" class="form-check-input checkbox-lg-create" />
+        <label asp-for="IsDone" class="form-check-label">Is it done?</label>
     </div>
     <div class="mb-3">
         <label asp-for="DueDate" class="form-label"></label>
         <input asp-for="DueDate" class="form-control" type="date" />
+        <span asp-validation-for="DueDate" class="text-danger"></span>
     </div>
 @*     
     <div class="mb-3">

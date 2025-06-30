@@ -6,22 +6,31 @@
     <title>@ViewData["Title"] - TodoWebApp</title>
     <script type="importmap"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    @* NOTE: The following line is for the CSS file that contains styles specific to the TodoWeb site. *@
+    
+    @* NOTE: The following line is for the CSS file that contains styles specific to the TodoWebApp site. *@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/TodoWebApp.styles.css" asp-append-version="true" />
+    
+    @* NOTE: This handles our popup/tooltip (on hover) that contains the details of the ToDoItem. *@
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          var tipEls = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+          Array.from(tipEls).forEach(el => new bootstrap.Tooltip(el, { trigger: 'hover', delay: { "show": 100, "hide": 50 } }));
+        });
+    </script>
 </head>
 <body class="dark-theme">
-    @* <img src="~/images/meshBackground.jpg" class="hero" /> *@
     <header>
+    @* NOTE: I've added a custom fs-7 to the bootstrap which equates to 0.75rem. *@
+    @*         
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-dark border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TodoWebApp</a>
+                <a class="navbar-brand text-muted fs-7" asp-area="" asp-controller="Home" asp-action="Index">TodoWebApp</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                @*                 
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between fs-7">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
@@ -31,9 +40,9 @@
                         </li>
                     </ul>
                 </div> 
-                *@
             </div>
-        </nav>
+        </nav> 
+    *@
     </header>
     <div class="container">
         <main role="main" class="pb-3">
@@ -42,9 +51,11 @@
     </div>
 
     <footer class="border-top footer text-muted">
+@*         
         <div class="container">
             &copy; 2025 - TodoWebApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
+ *@
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

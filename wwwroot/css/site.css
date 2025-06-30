@@ -207,3 +207,50 @@ body::before {
         pointer-events: none;
 }
 */
+
+/* make all .table corners rounded */
+.table {
+    border-collapse: separate; /* allow rounding on collapsed tables */
+    border-spacing: 0; /* remove gaps */
+    border-radius: 0.5rem; /* tweak to taste */
+    overflow: hidden; /* clip children to the rounded corners */
+}
+
+.checkbox-lg {
+    transform: scale(1.5); /* scale up 150% */
+    margin: 0.25rem; /* adjust surrounding spacing */
+    vertical-align: middle; /* keep it aligned with text */
+    margin-right: 0.25rem; /* shrink the space to the right of the box */
+    margin-left: 0.75rem; /* optional: remove any default left-margin too */
+}
+
+.checkbox-lg-create {
+    transform: scale(1.5); /* scale up 150% */
+    margin: 0.25rem; /* adjust surrounding spacing */
+    vertical-align: middle; /* keep it aligned with text */
+    margin-right: 1.1rem; /* shrink the space to the right of the box */
+    margin-left: 0.5rem; /* optional: remove any default left-margin too */
+}
+
+/* Light-blue + bottom-aligned inline text */
+.text-lightblue-bottom {
+    color: #0094FF; /* light-blue color */
+    display: inline-block; /* so vertical-align applies */
+    vertical-align: bottom; /* hug the bottom of the line box */
+    padding: 1.0rem 0rem 0rem 0rem; /* padding offsets: top right bottom left */
+}
+
+/* if you want it to bottom-align inside a flex container */
+.text-lightblue-bottom.flex-bottom {
+    color: #0094FF; /* light-blue color */
+    display: inline-block; /* so vertical-align applies */
+    vertical-align: bottom; /* hug the bottom of the line box */
+    align-self: flex-end; /* when parent is display:flex; flex-direction: column */
+}
+
+.text-lightblue-top {
+    color: #0094FF; /* light-blue color */
+    display: inline-block; /* so vertical-align applies */
+    vertical-align: top; /* hug the top of the line box */
+    padding: 0rem 0rem 0.5rem 0.6rem; /* padding offsets: top right bottom left  */
+}

@@ -12,7 +12,7 @@ namespace TodoWebApp.Models
         [Required, StringLength(100)]
         public string Title { get; set; }
 
-        [Required, StringLength(500)]
+        [Required, StringLength(1000)]
         public string Details { get; set; }
 
         public bool IsDone { get; set; }

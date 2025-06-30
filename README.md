@@ -16,12 +16,17 @@
 | Microsoft.EntityFrameworkCore.SqlServer | 9.0.6 |
 
 ## 📰 Description
-- A simple **ToDo List** web application utilizing **ASP.NET Core**, **Bootstrap** and **SQL/EntityFramework**.
-- Basic features include validation techniques for the data entry, a warning icon that appears when an item is past due, and the ability to sort by date added or due date.
+- A simple **ToDo List** web application utilizing [ASP.NET Core](https://dotnet.microsoft.com/en-us/apps/aspnet), [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction) and [Entity Framework](https://learn.microsoft.com/en-us/aspnet/entity-framework).
+- Basic features include validation techniques for the data entry, a warning icon that appears when an item is past due, the ability to sort by date added or due date, and custom Bootstrap/CSS properties.
+- The **Entity Framework** in this project explores the basic **CRUD** model.
+    - `Index.cshtml` - Displays the list of **ToDo** items, with sorting.
+	- `Create.cshtml` - Allows the user to add a new **ToDo** item.
+	- `Edit.cshtml` - Allows the user to edit an existing **ToDo** item.
+	- `Delete.cshtml` - Allows the user to delete an existing **ToDo** item.
 
 ## 🎛️ First Run
 
-- First setup the database by running the following commands in the Package Manager Console:
+- First setup the database by running the following commands in the **Package Manager Console**:
 
 ```bash
 PM> dotnet tool install --global dotnet-ef

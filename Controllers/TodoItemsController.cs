@@ -1,15 +1,21 @@
 ﻿using System.Diagnostics;
+
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 using TodoWebApp.Models;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace TodoWebApp.Controllers
 {
+    /// <summary>
+    /// NOTE: TempData["PropName"] is part of the <see cref="Microsoft.AspNetCore.Mvc.ViewFeatures.TempDataDictionary"/>.
+    ///       ViewData["PropName"] is part of the <see cref="Microsoft.AspNetCore.Mvc.ViewFeatures.ViewDataDictionary"/>.
+    /// </summary>
     public class TodoItemsController : Controller
     {
+        bool _logContext = false;
         readonly AppDbContext _db;
         readonly ILogger<TodoItemsController> _logger;
 
@@ -23,8 +29,52 @@ namespace TodoWebApp.Controllers
         }
 
         // HttpGet: /TodoItems?sortOrder=Due or ?sortOrder=due_desc or ?sortOrder=Added or ?sortOrder=added_desc
+        [HttpGet]
         public async Task<IActionResult> Index(string sortOrder)
         {
+            if (_logContext)
+            {
+                #region [Basic trace data for logging]
+                try
+                {
+                    //HttpContext.Features.ForEach();
+
+                    Debug.WriteLine($"[DEBUG] HttpContextRequestMethod..: {HttpContext.Request.Method}");
+                    Debug.WriteLine($"[DEBUG] HttpContextRequestProtocol: {HttpContext.Request.Protocol}");
+                    Debug.WriteLine($"[DEBUG] HttpContextRequestHost....: {HttpContext.Request.Host}");
+                    foreach (var hdr in HttpContext.Request.Headers)
+                    {
+                        Debug.WriteLine($"Header '{hdr.Key}'");
+                        foreach (var shdr in hdr.Value)
+                        {
+                            Debug.WriteLine($"   ⇒ {shdr}");
+                        }
+                    }
+                    Debug.WriteLine($"[INFO] Activity.Current.Id........: {Activity.Current?.Id} ({Activity.Current?.Kind})");
+
+                    var connId = HttpContext.Connection.Id;
+                    ViewData["StatusMessage"] = $"Connection Id: {connId}";
+                    _logger.LogInformation($"Connection Id is {connId}");
+
+                    var localIp = $"{HttpContext.Connection.LocalIpAddress}".FormatEndPoint();
+                    var remoteIp = $"{HttpContext.Connection.RemoteIpAddress}".FormatEndPoint();
+                    Debug.WriteLine($"[INFO] Connection.LocalIpAddress..: {localIp}");
+                    _logger.LogInformation($"Local connection is {localIp} on port {HttpContext.Connection.LocalPort}");
+                    Debug.WriteLine($"[INFO] Connection.RemoteIpAddress.: {remoteIp}");
+                    _logger.LogInformation($"Remote connection is {remoteIp} on port {HttpContext.Connection.RemotePort}");
+                }
+                catch (Exception)
+                {
+                    Debug.WriteLine($"[WARNING] Error while logging connection details");
+                }
+                #endregion
+            }
+            else
+            {
+                // This can be done in the cshtml, just an example of a different way to implant view data back to the page.
+                ViewData["StatusMessage"] = $"Today is {DateTime.Now.ToString("dddd, dd MMMM yyyy")}";
+            }
+
             ViewData["CurrentSort"] = sortOrder;
             ViewData["DueSortParm"] = sortOrder == "Due" ? "due_desc" : "Due";
             ViewData["AddedSortParm"] = sortOrder == "Added" ? "added_desc" : "Added";
@@ -65,7 +115,24 @@ namespace TodoWebApp.Controllers
         }
 
         // HttpGet: /TodoItems/Create
-        public IActionResult Create() => View();
+        [HttpGet]
+        public IActionResult Create()
+        {
+            var model = new TodoItem
+            {
+                // default the DueDate to tomorrow
+                DueDate = DateTime.Today.AddDays(1),
+                EntryDate = DateTime.Today
+            };
+            return View(model);
+        }
+
+        // HttpGet: /TodoItems/Create
+        public IActionResult CreateOriginal()
+        {
+            return View(); // this will result in the Model being null when the Create.cshtml page is loaded.
+        }
+
 
         // HttpPost: /TodoItems/Create
         [HttpPost]
@@ -137,6 +204,7 @@ namespace TodoWebApp.Controllers
         }
 
         // HttpGet: /TodoItems/Edit/5
+        [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
             var item = await _db.TodoItems.FindAsync(id);
@@ -172,6 +240,7 @@ namespace TodoWebApp.Controllers
         }
 
         // HttpGet: /TodoItems/Delete/5
+        [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
             var item = await _db.TodoItems.FindAsync(id);
@@ -199,6 +268,55 @@ namespace TodoWebApp.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+    }
+
+    public static class HttpContextExtensions
+    {
+        /// <summary>
+        /// Logs the features of the current HTTP context.
+        /// </summary>
+        public static void ForEach(this Microsoft.AspNetCore.Http.Features.IFeatureCollection features)
+        {
+            foreach (KeyValuePair<Type, object> feature in features)
+            {
+                Debug.WriteLine($"[DEBUG] FeatureType: {feature.Key},  Value: {feature.Value}");
+            }
+        }
+
+        /// <summary>
+        /// Parses an endpoint string (e.g., "127.0.0.1:63908") and formats it.
+        /// </summary>
+        /// <param name="endPointString">The endpoint string to parse.</param>
+        /// <returns>A formatted string, or "Invalid endpoint/IP/port format" if parsing fails.</returns>
+        public static string FormatEndPoint(this string endPointString)
+        {
+            if (string.IsNullOrWhiteSpace(endPointString))
+                return "Invalid endpoint format";
+            try
+            {
+                if (endPointString.StartsWith("::1"))
+                    return "localhost";
+
+                string[] parts = endPointString.Split(':');
+                if (parts.Length < 2)
+                    return "Invalid endpoint format";
+
+                string ipAddressString = parts[0];
+                string portString = parts[1];
+
+                if (!System.Net.IPAddress.TryParse(ipAddressString, out _))
+                    return "Invalid IP address format";
+
+                if (!int.TryParse(portString, out int port))
+                    return "Invalid port format";
+
+                return $"IP {ipAddressString}, port {port}";
+            }
+            catch (Exception)
+            {
+                return "Invalid endpoint format";
+            }
         }
     }
 }

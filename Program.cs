@@ -1,5 +1,4 @@
 using System.Diagnostics;
-using Microsoft.AspNetCore.Hosting.StaticWebAssets;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.InMemory;
 using Microsoft.EntityFrameworkCore.SqlServer;
@@ -78,11 +77,13 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    // The default HSTS value is 30 days. You may want to change this
+    // for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
 app.UseHttpsRedirection();
+
 app.UseRouting();
 
 app.UseAuthorization();
@@ -91,11 +92,14 @@ app.MapStaticAssets();
 
 // Middleware pipeline
 app.UseStaticFiles();  // serves "wwwroot/*"
-//app.UseStaticFiles(new StaticFileOptions { RequestPath = "/static" }); // serves "wwwroot/static/*"
-StaticWebAssetsLoader.UseStaticWebAssets(app.Environment, builder.Configuration);
+//app.UseStaticFiles(new StaticFileOptions { RequestPath = "/images" }); // serves "wwwroot/images/*"
 
-app.MapControllerRoute(name: "default", pattern: "{controller=TodoItems}/{action=Index}/{id?}");
+// This is needed to serve static files from the wwwroot folder when not running from the VisualStudio IDE.
+Microsoft.AspNetCore.Hosting.StaticWebAssets.StaticWebAssetsLoader
+    .UseStaticWebAssets(app.Environment, builder.Configuration);
+
 //app.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}").WithStaticAssets();
+app.MapControllerRoute(name: "default", pattern: "{controller=TodoItems}/{action=Index}/{id?}");
 
-
+// Let's go!
 app.Run();
