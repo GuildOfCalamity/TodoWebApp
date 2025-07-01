@@ -74,6 +74,9 @@ namespace TodoWebApp.Controllers
                 // This can be done in the cshtml, just an example of a different way to implant view data back to the page.
                 ViewData["StatusMessage"] = $"Today is {DateTime.Now.ToString("dddd, dd MMMM yyyy")}";
             }
+            
+            ViewData["AppBuild"] = $"build {Constants.AppBuild}";
+            ViewData["AppVersion"] = $"version {Constants.GetCurrentAssemblyVersion()}";
 
             ViewData["CurrentSort"] = sortOrder;
             ViewData["DueSortParm"] = sortOrder == "Due" ? "due_desc" : "Due";
@@ -262,6 +265,53 @@ namespace TodoWebApp.Controllers
             await _db.SaveChangesAsync();
             
             return RedirectToAction(nameof(Index));
+        }
+
+
+        [HttpGet]
+        public async Task<IActionResult> SearchOriginal(string term)
+        {
+            if (string.IsNullOrWhiteSpace(term))
+                return Json(Array.Empty<object>());
+
+            // find up to 5 items whose title contains the term
+            var results = await _db.TodoItems
+                .Where(t => t.Title.Contains(term))
+                .OrderBy(t => t.Title)
+                .Select(t => new { t.Id, t.Title })
+                .Take(5)
+                .ToListAsync();
+
+            return Json(results);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Search(string term, bool includeDetails = false)
+        {
+            if (string.IsNullOrWhiteSpace(term))
+                return Json(Array.Empty<object>());
+
+            IQueryable<TodoItem> query = _db.TodoItems;
+
+            if (includeDetails)
+            {
+                query = query.Where(t =>
+                    t.Title.Contains(term) ||
+                    t.Details.Contains(term));
+            }
+            else
+            {
+                query = query.Where(t =>
+                    t.Title.Contains(term));
+            }
+
+            var results = await query
+                .OrderBy(t => t.Title)
+                .Select(t => new { t.Id, t.Title })
+                .Take(5)
+                .ToListAsync();
+
+            return Json(results);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

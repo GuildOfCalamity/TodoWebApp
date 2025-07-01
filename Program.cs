@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore.SqlServer;
 using TodoWebApp.Logging;
 using TodoWebApp.Models;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 #region [Process any cmd line args]

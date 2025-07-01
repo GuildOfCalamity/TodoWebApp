@@ -182,10 +182,10 @@ h1 {
     background: url('/images/meshBackground.png') center/cover no-repeat;
 }
 
-/* ensure html/body fill the viewport */
+/* ensure html/body fill the viewport and grow with content */
 html,
 body {
-    height: 100%;
+    min-height: 100%;
     margin: 0;
 }
 
@@ -193,10 +193,9 @@ body {
 body {
     background-image: url('/images/background_opacity.png');
     background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    /* optional: lock it so content scrolls over it */
-    background-attachment: fixed;
+    background-position: center top;
+    background-size: cover; /* cover *entire* body, however tall */
+    background-attachment: fixed; /* "background-attachment: scroll" causes image to scroll with page instead of being fixed */
 }
 /* [To add a tint/dim to every page]
 body::before {
@@ -253,4 +252,59 @@ body::before {
     display: inline-block; /* so vertical-align applies */
     vertical-align: top; /* hug the top of the line box */
     padding: 0rem 0rem 0.5rem 0.6rem; /* padding offsets: top right bottom left  */
+}
+
+/* color the “Details” label next to the search box */
+.search-details-label {
+    color: #404040; /* gray */
+    display: inline-block; /* so vertical-align applies */
+    vertical-align: central; /* keep center of line */
+    padding: 0rem 0.5rem 0.0rem 0.0rem; /* padding offsets: top right bottom left  */
+}
+
+.text-dim-top {
+    color: #404040; /* gray color */
+    display: inline-block; /* so vertical-align applies */
+    vertical-align: top; /* hug the top of the line box */
+    padding: 0rem 0rem 0.8rem 0.0rem; /* padding offsets: top right bottom left  */
+}
+
+a.no-underline {
+    text-decoration: none;
+    color: inherit; /* keep the same text color */
+}
+
+a.no-underline:hover {
+    text-decoration: none; /* or underline if you want hover feedback */
+    cursor: pointer;
+}
+
+.btn-add-new {
+    margin: 0.5rem 1rem 1rem 0; /* top right bottom left */
+    padding: 0.6rem 1.4rem; /* vertical horizontal */
+}
+
+/* [search results] subtle shadow and zero border-radius so it lines up */
+#searchResults {
+    border-radius: 0;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+
+/* [search results] highlight on hover */
+#searchResults .list-group-item-action:hover {
+    background-color: rgba(0, 123, 255, 0.85);
+    cursor: pointer;
+}
+
+#toolbar {
+    position: sticky;
+    top: 0;
+    background: rgba(0, 123, 255, 0.1); /* updated to semi-transparent black */
+    z-index: 1000;
+    padding: 0.5rem 0.6rem 0rem 0.6rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    margin-bottom: 1rem;
+    border-radius: 0.5rem; /* rounded corners */
+    /* display: flex; */
+    align-items: center;
 }

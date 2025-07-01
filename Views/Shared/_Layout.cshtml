@@ -11,13 +11,6 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/TodoWebApp.styles.css" asp-append-version="true" />
     
-    @* NOTE: This handles our popup/tooltip (on hover) that contains the details of the ToDoItem. *@
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-          var tipEls = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-          Array.from(tipEls).forEach(el => new bootstrap.Tooltip(el, { trigger: 'hover', delay: { "show": 100, "hide": 50 } }));
-        });
-    </script>
 </head>
 <body class="dark-theme">
     <header>
