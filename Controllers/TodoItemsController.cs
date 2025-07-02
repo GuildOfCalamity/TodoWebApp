@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
@@ -15,7 +16,7 @@ namespace TodoWebApp.Controllers
     /// </summary>
     public class TodoItemsController : Controller
     {
-        bool _logContext = false;
+        bool _logHttpContext = false;
         readonly AppDbContext _db;
         readonly ILogger<TodoItemsController> _logger;
 
@@ -28,11 +29,10 @@ namespace TodoWebApp.Controllers
             _logger = logger;
         }
 
-        // HttpGet: /TodoItems?sortOrder=Due or ?sortOrder=due_desc or ?sortOrder=Added or ?sortOrder=added_desc
-        [HttpGet]
+        [HttpGet] // GET: /TodoItems?sortOrder=Due or ?sortOrder=due_desc or ?sortOrder=Added or ?sortOrder=added_desc
         public async Task<IActionResult> Index(string sortOrder)
         {
-            if (_logContext)
+            if (_logHttpContext)
             {
                 #region [Basic trace data for logging]
                 try
@@ -78,6 +78,7 @@ namespace TodoWebApp.Controllers
             ViewData["AppBuild"] = $"build {Constants.AppBuild}";
             ViewData["AppVersion"] = $"version {Constants.GetCurrentAssemblyVersion()}";
 
+            #region [Sorting by requested order]
             ViewData["CurrentSort"] = sortOrder;
             ViewData["DueSortParm"] = sortOrder == "Due" ? "due_desc" : "Due";
             ViewData["AddedSortParm"] = sortOrder == "Added" ? "added_desc" : "Added";
@@ -105,20 +106,18 @@ namespace TodoWebApp.Controllers
                       .ThenBy(t => t.DueDate);
                     break;
             }
+            #endregion
 
+            // Use AsNoTracking() for read-only queries to improve performance.
             var model = await items.AsNoTracking().ToListAsync();
+
             return View(model);
         }
-
-        // HttpGet: /TodoItems
-        public async Task<IActionResult> IndexOriginal()
-        {
-            var items = await _db.TodoItems.ToListAsync();
-            return View(items);
-        }
-
-        // HttpGet: /TodoItems/Create
-        [HttpGet]
+        
+        [HttpGet] // GET: /TodoItems/Create
+        /// <summary>
+        ///   This method is used to display the Create.cshtml page.
+        /// </summary>
         public IActionResult Create()
         {
             var model = new TodoItem
@@ -127,19 +126,19 @@ namespace TodoWebApp.Controllers
                 DueDate = DateTime.Today.AddDays(1),
                 EntryDate = DateTime.Today
             };
+
+            ViewData["StatusMessage"] = $"Today is {DateTime.Now.ToString("dddd, dd MMMM yyyy")}";
+            ViewData["AppBuild"] = $"build {Constants.AppBuild}";
+            ViewData["AppVersion"] = $"version {Constants.GetCurrentAssemblyVersion()}";
+
             return View(model);
         }
 
-        // HttpGet: /TodoItems/Create
-        public IActionResult CreateOriginal()
-        {
-            return View(); // this will result in the Model being null when the Create.cshtml page is loaded.
-        }
-
-
-        // HttpPost: /TodoItems/Create
-        [HttpPost]
+        [HttpPost] // POST: /TodoItems/Create
         [ValidateAntiForgeryToken]
+        /// <summary>
+        ///   This method is used to save changes from the Create.cshtml page.
+        /// </summary>
         public async Task<IActionResult> Create(TodoItem item)
         {
             if (item.EntryDate is null)
@@ -179,7 +178,7 @@ namespace TodoWebApp.Controllers
             }
             catch (Exception ex)
             {
-                // catch DB exceptions, etc.
+                // catch DB exceptions and add to modal error display
                 _logger.LogError(ex, "Exception while saving new item");
                 ModelState.AddModelError("", "Unable to save changes.");
                 return View(item);
@@ -188,26 +187,10 @@ namespace TodoWebApp.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // HttpPost: /TodoItems/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateOriginal(TodoItem item)
-        {
-            item.EntryDate = DateTime.Now;
-            //item.Details ??= string.Empty; // ensure Details is not null
-
-            if (!ModelState.IsValid)
-                return View(item);
-
-            _db.Add(item);
-
-            await _db.SaveChangesAsync();
-
-            return RedirectToAction(nameof(Index));
-        }
-
-        // HttpGet: /TodoItems/Edit/5
-        [HttpGet]
+        [HttpGet] // GET: /TodoItems/Edit/5
+        /// <summary>
+        ///   This method is used to display the Edit.cshtml page.
+        /// </summary>
         public async Task<IActionResult> Edit(int id)
         {
             var item = await _db.TodoItems.FindAsync(id);
@@ -218,13 +201,21 @@ namespace TodoWebApp.Controllers
             //TempData["ShowMessagePopup"] = true; // set the show flag
             //TempData["PopupMessage"] = "Test message here.<br/>"; // pass the messages joined by <br> so we can render HTML
 
+            ViewData["StatusMessage"] = $"Today is {DateTime.Now.ToString("dddd, dd MMMM yyyy")}";
+            ViewData["AppBuild"] = $"build {Constants.AppBuild}";
+            ViewData["AppVersion"] = $"version {Constants.GetCurrentAssemblyVersion()}";
+
             return View(item);
         }
 
-        // HttpPost: /TodoItems/Edit/5
-        [HttpPost, ValidateAntiForgeryToken]
+        [HttpPost, ValidateAntiForgeryToken] // POST: /TodoItems/Edit/5
+        /// <summary>
+        ///   This method is used to save the changes from the Edit.cshtml page.
+        /// </summary>
         public async Task<IActionResult> Edit(int id, TodoItem item)
         {
+            // This method is used to save the changes from the Edit.cshtml page.
+
             if (id != item.Id) 
                 return BadRequest();
 
@@ -242,20 +233,29 @@ namespace TodoWebApp.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // HttpGet: /TodoItems/Delete/5
-        [HttpGet]
+        
+        [HttpGet] // GET: /TodoItems/Delete/5
+        /// <summary>
+        ///   This method was used to display the Delete.cshtml page.
+        /// </summary>
         public async Task<IActionResult> Delete(int id)
         {
             var item = await _db.TodoItems.FindAsync(id);
             
             if (item == null) 
                 return NotFound();
-            
+
+            ViewData["StatusMessage"] = $"Today is {DateTime.Now.ToString("dddd, dd MMMM yyyy")}";
+            ViewData["AppBuild"] = $"build {Constants.AppBuild}";
+            ViewData["AppVersion"] = $"version {Constants.GetCurrentAssemblyVersion()}";
+
             return View(item);
         }
 
-        // HttpPost: /TodoItems/Delete/5
-        [HttpPost, ActionName("Delete"), ValidateAntiForgeryToken]
+        [HttpPost, ActionName("Delete"), ValidateAntiForgeryToken] // HttpPost: /TodoItems/Delete/5
+        /// <summary>
+        ///   This method was used to remove the item from the DB.
+        /// </summary>
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var item = await _db.TodoItems.FindAsync(id);
@@ -263,29 +263,13 @@ namespace TodoWebApp.Controllers
             _db.TodoItems.Remove(item!);
             
             await _db.SaveChangesAsync();
-            
+
+            _logger.LogInformation($"Item as deleted: {item}");
+
             return RedirectToAction(nameof(Index));
         }
 
-
-        [HttpGet]
-        public async Task<IActionResult> SearchOriginal(string term)
-        {
-            if (string.IsNullOrWhiteSpace(term))
-                return Json(Array.Empty<object>());
-
-            // find up to 5 items whose title contains the term
-            var results = await _db.TodoItems
-                .Where(t => t.Title.Contains(term))
-                .OrderBy(t => t.Title)
-                .Select(t => new { t.Id, t.Title })
-                .Take(5)
-                .ToListAsync();
-
-            return Json(results);
-        }
-
-        [HttpGet]
+        [HttpGet] // GET: /TodoItems/Search
         public async Task<IActionResult> Search(string term, bool includeDetails = false)
         {
             if (string.IsNullOrWhiteSpace(term))
@@ -314,59 +298,109 @@ namespace TodoWebApp.Controllers
             return Json(results);
         }
 
+        [HttpGet] // GET: /TodoItems/Statistics
+        public async Task<IActionResult> Statistics()
+        {
+            var (fastest, slowest) = await GetCompletionTimeStatsAsync();
+
+            var total = await _db.TodoItems.CountAsync();
+            var completed = await _db.TodoItems.CountAsync(t => t.IsDone);
+            var pending = total - completed;
+            var vm = new StatisticsViewModel
+            {
+                CompletedCount = completed,
+                PendingCount = pending,
+                FastestCompletion = fastest,
+                SlowestCompletion = slowest,
+            };
+            return View(vm);
+        }
+
+        /// <summary>
+        /// Returns a tuple representing the fastest and slowest time between <see cref="TodoItem.EntryDate"/>
+        /// and <see cref="TodoItem.DueDate"/>. A "CompletedDate" should be added in the future to track how 
+        /// much actual time was spent on each item as it is completed.
+        /// </summary>
+        async Task<(string? Fastest, string? Slowest)> GetCompletionTimeStatsAsync()
+        {
+            // Fetch only completed items with non-null CompletedDate
+            var items = await _db.TodoItems
+                .Where(t => t.IsDone && t.DueDate.HasValue)
+                .Select(t => new
+                {
+                    Created = t.EntryDate,
+                    Completed = t.DueDate
+                })
+                .ToListAsync();
+
+            // No completed items?
+            if (!items.Any())
+                return (string.Empty, string.Empty);
+
+            // Project durations
+            var durations = items
+                .Select(x => x.Completed - x.Created);
+
+            var fast = durations.Min();
+            var slow = durations.Max();
+
+            // Return min and max
+            return (Fastest: fast.ToReadableTime(), Slowest: slow.ToReadableTime());
+        }
+
+        #region [Original/Default Methods]
+        [HttpGet] // GET: /TodoItems
+        public async Task<IActionResult> IndexOriginal()
+        {
+            var items = await _db.TodoItems.ToListAsync();
+            return View(items);
+        }
+
+        // HttpGet: /TodoItems/Create
+        public IActionResult CreateOriginal()
+        {
+            return View(); // this will result in the Model being null when the Create.cshtml page is loaded.
+        }
+
+        [HttpPost] // POST: /TodoItems/Create
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateOriginal(TodoItem item)
+        {
+            item.EntryDate = DateTime.Now;
+            //item.Details ??= string.Empty; // ensure Details is not null
+
+            if (!ModelState.IsValid)
+                return View(item);
+
+            _db.Add(item);
+
+            await _db.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet] // GET: /TodoItems/Search
+        public async Task<IActionResult> SearchOriginal(string term)
+        {
+            if (string.IsNullOrWhiteSpace(term))
+                return Json(Array.Empty<object>());
+
+            // find up to 5 items whose title contains the term
+            var results = await _db.TodoItems
+                .Where(t => t.Title.Contains(term))
+                .OrderBy(t => t.Title)
+                .Select(t => new { t.Id, t.Title })
+                .Take(5)
+                .ToListAsync();
+
+            return Json(results);
+        }
+        #endregion
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-    }
-
-    public static class HttpContextExtensions
-    {
-        /// <summary>
-        /// Logs the features of the current HTTP context.
-        /// </summary>
-        public static void ForEach(this Microsoft.AspNetCore.Http.Features.IFeatureCollection features)
-        {
-            foreach (KeyValuePair<Type, object> feature in features)
-            {
-                Debug.WriteLine($"[DEBUG] FeatureType: {feature.Key},  Value: {feature.Value}");
-            }
-        }
-
-        /// <summary>
-        /// Parses an endpoint string (e.g., "127.0.0.1:63908") and formats it.
-        /// </summary>
-        /// <param name="endPointString">The endpoint string to parse.</param>
-        /// <returns>A formatted string, or "Invalid endpoint/IP/port format" if parsing fails.</returns>
-        public static string FormatEndPoint(this string endPointString)
-        {
-            if (string.IsNullOrWhiteSpace(endPointString))
-                return "Invalid endpoint format";
-            try
-            {
-                if (endPointString.StartsWith("::1"))
-                    return "localhost";
-
-                string[] parts = endPointString.Split(':');
-                if (parts.Length < 2)
-                    return "Invalid endpoint format";
-
-                string ipAddressString = parts[0];
-                string portString = parts[1];
-
-                if (!System.Net.IPAddress.TryParse(ipAddressString, out _))
-                    return "Invalid IP address format";
-
-                if (!int.TryParse(portString, out int port))
-                    return "Invalid port format";
-
-                return $"IP {ipAddressString}, port {port}";
-            }
-            catch (Exception)
-            {
-                return "Invalid endpoint format";
-            }
         }
     }
 }

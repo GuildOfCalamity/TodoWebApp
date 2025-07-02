@@ -1,4 +1,12 @@
-/* 1) Base colors */
+/* 
+    rem = root element
+
+    If the root element's font size is 16px, 0.5rem would be 8px, 1rem would be 16px, 2rem would be 32px, and so on. 0rem would always be 0px.
+
+    The difference between rem units and em units is that em units are relative to the font size of their own element, not the root element.
+*/
+
+/* Base colors */
 .dark-theme {
     --bg: #181818;
     --fg: #eaeaea;
@@ -7,14 +15,14 @@
     --border: #2c2c2c;
 }
 
-    /* 2) Apply base */
+    /* Apply base */
     .dark-theme,
     .dark-theme body {
         background-color: var(--bg);
         color: var(--fg);
     }
 
-        /* 3) Links & headings */
+        /* Links & headings */
         .dark-theme a {
             color: var(--accent);
         }
@@ -29,7 +37,7 @@
             color: var(--fg);
         }
 
-        /* 4) Tables */
+        /* Tables */
         .dark-theme .table {
             background-color: var(--bg);
             color: var(--fg);
@@ -45,7 +53,7 @@
             background-color: #1e1e1e;
         }
 
-        /* 5) Form controls */
+        /* Form controls */
         .dark-theme .form-control {
             background-color: var(--border);
             color: var(--fg);
@@ -58,7 +66,7 @@
                 box-shadow: 0 0 0 .2rem rgba(0,148,255,.25);
             }
 
-        /* 6) Buttons */
+        /* Buttons */
         .dark-theme .btn-primary {
             background-color: var(--accent);
             border-color: var(--accent);
@@ -80,19 +88,19 @@
                 background-color: #3a3a3a;
             }
 
-        /* 7) Validation messages */
+        /* Validation messages */
         .dark-theme .text-danger {
             color: #ef554a;
         }
 
-        /* 8) Date inputs */
+        /* Date inputs */
         .dark-theme input[type="date"] {
             background-color: var(--border);
             color: var(--fg);
             border: 1px solid #444;
         }
 
-/* 9) Utility: auto-switch if user prefers dark */
+/* Utility: auto-switch if user prefers dark */
 @media (prefers-color-scheme: dark) {
     body:not(.light-theme) { /* only if you don’t force light */
         background-color: var(--bg);
@@ -266,7 +274,7 @@ body::before {
     color: #404040; /* gray color */
     display: inline-block; /* so vertical-align applies */
     vertical-align: top; /* hug the top of the line box */
-    padding: 0rem 0rem 0.8rem 0.0rem; /* padding offsets: top right bottom left  */
+    padding: 0rem 0rem 0.8rem 0rem; /* padding offsets: top right bottom left  */
 }
 
 a.no-underline {
@@ -307,4 +315,21 @@ a.no-underline:hover {
     border-radius: 0.5rem; /* rounded corners */
     /* display: flex; */
     align-items: center;
+}
+
+.dark-modal .modal-content {
+    background-color: #343a40; /* Bootstrap’s dark bg */
+    color: #f8f9fa; /* Bootstrap’s light text */
+}
+
+.dark-modal .btn-close {
+    filter: invert(1); /* make the 'X' white */
+}
+
+/* chart icon a bit bigger & aligned */
+.emoji-icon {
+    font-size: 2.0rem; /* bump up the emoji size */
+    line-height: 1; /* keep it vertically centered */
+    color: inherit; /* matches surrounding text color */
+    /* box-shadow: 0 4px 6px rgba(0,0,0,0.75); */
 }
