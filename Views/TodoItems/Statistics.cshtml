@@ -1,0 +1,125 @@
+﻿@model TodoWebApp.Models.StatisticsViewModel
+@{
+    ViewData["Title"] = "Statistics";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="m-0 opacity-50">@ViewData["Title"]</h1>
+    @* <span class="pe-5 opacity-75 fs-5 text-lightblue-bottom">@ViewData["StatusMessage"]</span> *@
+    <img src="~/images/favicon.png" alt="Logo" style="height:48px; width:auto;" asp-append-version="true" />
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-2">
+        <p><strong>Completed:</strong> @Model.CompletedCount</p>
+        <p><strong>Pending:</strong> @Model.PendingCount</p>
+        <p><strong>Fastest:</strong> @Model.FastestCompletion</p>
+        <p><strong>Slowest:</strong> @Model.SlowestCompletion</p>
+        <p><strong>Average:</strong> @Model.AverageCompletion</p>
+    </div>
+    <div class="col-md-8">
+        <canvas id="statsChart"></canvas>
+    </div>
+
+    @* [Left-justified] *@
+    <div class="mt-4">
+        <a asp-action="Index" class="btn btn-secondary">⯇ Back</a>
+    </div>
+
+    @* [Right-justified] 
+    <div class="mt-4 text-end">
+        <a asp-action="Index" class="btn btn-secondary">⯇ Back</a>
+    </div>
+    *@
+</div>
+
+@section Scripts {
+    <!-- Chart.js CDN https://cdn.jsdelivr.net/npm/chart.js -->
+    <script src="/lib/chart/chart.js"></script>
+
+@* [PIE CHART]
+    <script>
+        const ctx = document.getElementById('statsChart').getContext('2d');
+
+        new Chart(ctx, {
+          type: 'pie',
+          data: {
+            labels: ['Completed', 'Pending'],
+            datasets: [{
+              data: [
+                @Model.CompletedCount,
+                @Model.PendingCount
+              ],
+              backgroundColor: [
+                'rgba(40, 167, 69, 0.75)',   // green
+                'rgba(1, 140, 250, 0.75)'    // blue
+              ]
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: { position: 'bottom' }
+            }
+          }
+        });
+    </script> 
+*@
+
+@* [BAR CHART] *@
+    <script>
+        const ctx = document.getElementById('statsChart').getContext('2d');
+
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: ['Completed', 'Pending'],
+            datasets: [{
+              label: 'Items Count',
+              data: [
+                @Model.CompletedCount,
+                @Model.PendingCount
+              ],
+              backgroundColor: [
+                'rgba(40, 167, 69, 0.75)',  // green bar
+                'rgba(1, 140, 250, 0.75)'   // blue bar
+              ],
+              borderColor: [
+                'rgba(68, 255, 115, 1)',
+                'rgba(124, 200, 255, 1)'
+              ],
+              borderWidth: 2
+            }]
+          },
+          options: {
+            responsive: true,
+            indexAxis: 'y',            // 'y' makes it horizontal
+            scales: {
+              y: {
+                beginAtZero: true,     // y-axis starts at zero
+                title: {
+                  display: true,
+                  text: 'Category'
+                }
+              },
+              x: {
+                title: {
+                  display: true,
+                  text: 'Total'
+                }
+              }
+            },
+            plugins: {
+              legend: {
+                display: false        // hide the 'Items Count' box
+              },
+              title: {
+                display: true,
+                text: 'Completed vs. Pending Tasks'
+              }
+            }
+          }
+        });
+    </script>
+
+}

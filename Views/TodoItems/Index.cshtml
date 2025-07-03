@@ -1,9 +1,10 @@
 ﻿@model IEnumerable<TodoWebApp.Models.TodoItem>
 @{
-    ViewData["Title"] = "ToDo List";
+    ViewData["Title"] = "Task List";
     var currentSort = ViewData["CurrentSort"] as string;
     var dueSortParam = ViewData["DueSortParm"] as string;
     var addedSortParam = ViewData["AddedSortParm"] as string;
+    var completedSortParam = ViewData["CompletedSortParm"] as string;
 }
 
 <div class="d-flex justify-content-between align-items-center mb-3">
@@ -13,7 +14,36 @@
     @* <img src="~/images/checkFader.gif" alt="Logo" style="height:32px; width:auto;" asp-append-version="true" /> *@
 </div>
 
-<p><a asp-action="Create" class="btn btn-primary">Add New</a></p>
+@* 
+    New layout with [Add New] and [Search].
+    The input id fields will be picked up by the javascript document.getElementById() above.
+*@
+@* <div class="sticky-top shadow-sm py-2 mb-3" style="z-index:1020;"> *@
+<div id="toolbar">
+    <div class="d-flex mb-3 align-items-center">
+        <!-- this pushes everything after it to the right -->
+        <a asp-action="Create" class="btn btn-primary me-auto btn-add-new">Add New</a>
+
+        @* <a asp-action="Statistics" class="btn btn-outline-secondary me-auto" title="View Statistics"><i class="bi bi-bar-chart-fill"></i></a> *@
+        <a asp-action="Statistics" class="btn btn-sm me-auto emoji-icon" title="View Statistics" aria-label="View Statistics">
+            <img src="~/images/chartlink3.png" alt="Chart" style="height:48px; width:auto;" asp-append-version="true" />
+        </a>
+
+        <div class="form-check form-check-inline me-2">
+            <input class="form-check-input" type="checkbox" id="searchDetails" />
+            <label class="form-check-label text-sm search-details-label" for="searchDetails">include details</label>
+        </div>
+    
+        <div class="position-relative" style="width:250px;">
+            <input id="todoSearch" type="text" class="form-control" placeholder="Search…" autocomplete="off" />
+            <ul id="searchResults" class="list-group position-absolute w-100" style="z-index:1000; display:none;">
+                <!-- results injected here -->
+            </ul>
+        </div>
+    </div>
+</div>
+
+@* We'll use a table control to list our ToDo items. *@
 <table class="table">
     <thead>
         <tr>
@@ -45,6 +75,19 @@
                     }
                 </a>
             </th>
+            <th>
+                <a asp-action="Index" asp-route-sortOrder="@completedSortParam">
+                    Completed
+                    @if (currentSort == "Completed")
+                    {
+                        <span>&#9650;</span>   @* ascending *@
+                    }
+                    else if (currentSort == "completed_desc")
+                    {
+                        <span>&#9660;</span>   @* descending *@
+                    }
+                </a>
+            </th>
             <th>Options</th>
         </tr>
     </thead>
@@ -65,7 +108,7 @@
                           data-bs-toggle="tooltip"
                           data-bs-html="true"
                           title="@item.Details.Replace("\n", "<br/>")">
-                        <a asp-action="Edit" asp-route-id="@item.Id">@item.Title</a>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="no-underline">@item.Title</a>
                         @if (item.DueDate.HasValue && item.DueDate.Value.Date < DateTime.Today && !item.IsDone)
                         {
                             <span class="text-warning fs-5" title="Item is past due">&#9888;</span>
@@ -75,10 +118,155 @@
                 <td class="pe-0 align-middle">@item.EntryDate?.ToShortDateString()</td>
                 <td class="pe-0 align-middle">@item.DueDate?.ToShortDateString()</td>
                 <td class="pe-0 align-middle">
-                    @* <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> *@
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> | <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    @(item.CompletedDate?.ToShortDateString() ?? "TBD")
+                </td>
+                <td class="pe-0 align-middle">
+                    @* <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> | <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> *@
+                    <form asp-action="Delete"
+                          asp-route-id="@item.Id"
+                          method="post"
+                          class="d-inline delete-form">
+
+                        <button type="button"
+                                class="btn btn-link text-danger p-0 delete-btn">
+                            Delete
+                        </button>
+                    </form>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+
+@* This is our Bootstrap modal dialog/popup for confirming deletion of a ToDoItem. *@
+<div class="modal fade dark-modal" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmDeleteLabel">Confirm Deletion</h5>
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close">
+                </button>
+            </div>
+            <div class="modal-body">Are you sure you want to delete this item?</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" id="confirmDeleteYes">YES</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Place build and version tags at the bottom. -->
+<div class="form-check form-check-reverse me-0">
+    <span class="pe-1 opacity-75 fs-6 text-dim-top">@ViewData["AppVersion"]&nbsp;&nbsp;—&nbsp;&nbsp;@ViewData["AppBuild"]</span>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+          // This is for the checkbox to remember whether to include details in search results.
+          const chk = document.getElementById("searchDetails");
+          const saved = localStorage.getItem("searchDetailsEnabled"); // read saved value (string “true”/“false”)
+          if (saved !== null) { chk.checked = saved === "true"; }
+          chk.addEventListener("change", () => {
+              localStorage.setItem("searchDetailsEnabled", chk.checked); // whenever user toggles, persist new value
+          });
+
+          // These next two lines handle our popup/tooltip (on hover) that contains the details of the ToDoItem.
+          var tipEls = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+          Array.from(tipEls).forEach(el => new bootstrap.Tooltip(el, { 
+              trigger: 'hover', delay: { "show": 100, "hide": 50 } 
+          }));
+
+          // This is for the delete confirmation modal dialog.
+          let formToSubmit = null;
+          const deleteModal = new bootstrap.Modal(document.getElementById('confirmDeleteModal'));
+          // When a Delete button is clicked, remember its form and show modal
+          document.querySelectorAll('.delete-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+              formToSubmit = btn.closest('.delete-form');
+              deleteModal.show();
+            });
+          });
+
+          // If user confirms, submit that form
+          document.getElementById('confirmDeleteYes').addEventListener('click', () => {
+            if (formToSubmit) { formToSubmit.submit(); }
+          });
+
+        });
+
+        // This is the search and auto-complete functionality.
+        (function() {
+          const input = document.getElementById('todoSearch');
+          const list  = document.getElementById('searchResults');
+          const chk   = document.getElementById('searchDetails');
+          let debounceTimer;
+
+          function fetchResults() {
+            const term = input.value.trim();
+            if (!term) {
+              list.style.display = 'none';
+              return;
+            }
+
+            const url = `@Url.Action("Search")` + `?term=${encodeURIComponent(term)}` + `&includeDetails=${chk.checked}`;
+
+            fetch(url)
+              .then(r => r.json())
+              .then(items => {
+                if (items.length === 0) {
+                  list.innerHTML =
+                    `<li class="list-group-item text-muted">No matches</li>`;
+                } else {
+                  list.innerHTML = items.map(i =>
+                    `<li class="list-group-item list-group-item-action" data-id="${i.id}">
+                       ${i.title}
+                     </li>`
+                  ).join('');
+                }
+                list.style.display = 'block';
+              });
+          }
+
+          input.addEventListener('input', () => {
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(fetchResults, 250); // wait 250ms after typing stops
+          });
+
+          list.addEventListener('click', e => {
+            const li = e.target.closest('li[data-id]');
+            if (li) window.location.href = `@Url.Action("Edit")/${li.dataset.id}`;
+          });
+
+          document.addEventListener('click', e => {
+            if (!input.contains(e.target) && !list.contains(e.target)) {
+              list.style.display = 'none';
+            }
+          });
+        })();
+    </script>
+
+    @* NOTE: This handles refreshing our page at midnight. *@
+    <script>
+        (function() {
+          // get now
+          var now = new Date();
+          // build a Date for next midnight (00:00 tomorrow)
+          var nextMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0, 0);
+          // calc ms until then
+          var msUntilMidnight = nextMidnight - now;
+          console.log('Refreshing in', msUntilMidnight, 'ms at', nextMidnight);
+
+          // schedule a single reload
+          setTimeout(function() {
+            location.reload();
+          }, msUntilMidnight);
+        })();
+    </script>
+}

@@ -77,5 +77,13 @@ namespace TodoWebApp.Controllers
             int years = Convert.ToInt32(Math.Floor((double)Math.Abs(((TimeSpan)value).Days) / 365));
             return years <= 1 ? "one year" : years + " years";
         }
+
+        public static bool IsInvalid(this double value)
+        {
+            if (value == double.NaN || value == double.NegativeInfinity || value == double.PositiveInfinity)
+                return true;
+
+            return false;
+        }
     }
 }

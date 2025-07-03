@@ -4,6 +4,7 @@
     {
         public int CompletedCount { get; set; }
         public int PendingCount { get; set; }
+        public string? AverageCompletion { get; set; }
         public string? FastestCompletion { get; set; }
         public string? SlowestCompletion { get; set; }
     }

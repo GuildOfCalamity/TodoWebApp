@@ -5,6 +5,7 @@
 
 <div class="d-flex justify-content-between align-items-center mb-3">
     <h1 class="m-0 opacity-50">@ViewData["Title"]</h1>
+    <span class="pe-5 opacity-75 fs-5 text-lightblue-bottom">@ViewData["StatusMessage"]</span>
     <img src="~/images/favicon.png" alt="Logo" style="height:48px; width:auto;" asp-append-version="true" />
 </div>
 
@@ -32,7 +33,7 @@
         <label class="form-label">@Html.DisplayNameFor(m => m.EntryDate)</label>
         <!-- form-control-plaintext is bootstrap’s way to render read-only data in form layout -->
         <p class="form-control-plaintext text-lightblue-top">
-            @Model.EntryDate?.ToString("dddd, MMMM dd yyyy")
+            @Model.EntryDate?.ToString("dddd, MMMM d yyyy")
         </p>
         <!-- We still need the value to post back to controller -->
         <input type="hidden" asp-for="EntryDate" />
@@ -40,6 +41,11 @@
     <button type="submit" class="btn btn-danger">Confirm</button>
     <a asp-action="Index" class="btn btn-secondary">Cancel</a>
 </form>
+
+<!-- Place build and version tags at the bottom. -->
+<div class="form-check form-check-reverse me-0">
+    <span class="pe-1 opacity-75 fs-6 text-dim-top">@ViewData["AppVersion"]&nbsp;&nbsp;—&nbsp;&nbsp;@ViewData["AppBuild"]</span>
+</div>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

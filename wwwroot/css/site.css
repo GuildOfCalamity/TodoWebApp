@@ -262,6 +262,12 @@ body::before {
     padding: 0rem 0rem 0.5rem 0.6rem; /* padding offsets: top right bottom left  */
 }
 
+.label-completed {
+    display: inline-block; /* so vertical-align applies */
+    vertical-align: top; /* hug the top of the line box */
+    padding: 0rem 2.0rem 0.5rem 0.25rem; /* padding offsets: top right bottom left  */
+}
+
 /* color the “Details” label next to the search box */
 .search-details-label {
     color: #404040; /* gray */

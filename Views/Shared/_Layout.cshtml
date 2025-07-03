@@ -31,6 +31,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="TodoItems" asp-action="Statistics">Statistics</a>
+                        </li>
                     </ul>
                 </div> 
             </div>
@@ -56,12 +59,12 @@
     @await RenderSectionAsync("Scripts", required: false)
 
     @* This is our modal bootstrap dialog/popup for warnings. *@
-    <div class="modal fade" id="myValidationModal" tabindex="-1">
+    <div class="modal fade dark-modal" id="myValidationModal" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content border-warning">
                 <div class="modal-header">
                     <h5 class="modal-title">Alert!</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    <button title="close" type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body"></div>
                 <div class="modal-footer">

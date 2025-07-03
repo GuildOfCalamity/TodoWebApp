@@ -23,7 +23,10 @@ namespace TodoWebApp.Models
         [DataType(DataType.Date)]
         public DateTime? EntryDate { get; set; }
 
-        public override string ToString() => $"{Id} => {Title} => {IsDone} => {DueDate}";
+        [DataType(DataType.Date)]
+        public DateTime? CompletedDate { get; set; }
+
+        public override string ToString() => $"{Id} => {Title} => {IsDone} => {EntryDate} => {DueDate}";
     }
 
 }

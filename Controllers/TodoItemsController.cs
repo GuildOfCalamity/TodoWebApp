@@ -1,4 +1,6 @@
-﻿using System;
+﻿// Ignore Spelling: Todo
+
+using System;
 using System.Diagnostics;
 
 using Microsoft.AspNetCore.Mvc;
@@ -82,6 +84,7 @@ namespace TodoWebApp.Controllers
             ViewData["CurrentSort"] = sortOrder;
             ViewData["DueSortParm"] = sortOrder == "Due" ? "due_desc" : "Due";
             ViewData["AddedSortParm"] = sortOrder == "Added" ? "added_desc" : "Added";
+            ViewData["CompletedSortParm"] = sortOrder == "Completed" ? "completed_desc" : "Completed";
 
             IQueryable<TodoItem> items = _db.TodoItems;
 
@@ -98,6 +101,12 @@ namespace TodoWebApp.Controllers
                     break;
                 case "added_desc":
                     items = items.OrderByDescending(t => t.EntryDate);
+                    break;
+                case "Completed":
+                    items = items.OrderBy(t => t.CompletedDate);
+                    break;
+                case "completed_desc":
+                    items = items.OrderByDescending(t => t.CompletedDate);
                     break;
                 default:
                     // Incomplete (IsDone=false) first, then by DueDate ascending
@@ -164,6 +173,15 @@ namespace TodoWebApp.Controllers
                 return View(item);
                 #endregion
             }
+            else if (item.DueDate < item.EntryDate) // Don't allow past due dates.
+            {
+                // set the show flag
+                TempData["ShowMessagePopup"] = true;
+                // pass the messages joined by <br> so we can render HTML
+                TempData["PopupMessage"] = $"The due date ({item.DueDate?.ToString("dddd, MMMM d yyyy")}) cannot be less than today.<br/>Please select a future date on the 📆 and try again.<br/>";
+                // return the same view, so TempData lives through this request
+                return View(item);
+            }
             else // clear the TempData if no errors
             {
                 TempData.Remove("ShowMessagePopup");
@@ -226,10 +244,42 @@ namespace TodoWebApp.Controllers
             if (item.EntryDate is null)
                 item.EntryDate = DateTime.Now;
 
-            _db.Update(item);
-            
-            await _db.SaveChangesAsync();
-            
+            // set or clear CompletedDate
+            if (item.IsDone && item.CompletedDate is null)
+                item.CompletedDate = DateTime.Now;
+            else if (!item.IsDone)
+                item.CompletedDate = null;
+
+            // Don't allow past due dates.
+            if (item.DueDate < item.EntryDate)
+            {
+                // set the show flag
+                TempData["ShowMessagePopup"] = true;
+                // pass the messages joined by <br> so we can render HTML
+                TempData["PopupMessage"] = $"The due date ({item.DueDate?.ToString("dddd, MMMM d yyyy")}) cannot be less than today.<br/>Please select a future date on the 📆 and try again.<br/>";
+                
+                // return the same view, so TempData lives through this request
+                return View(item);
+            }
+            else // clear the TempData if no errors
+            {
+                TempData.Remove("ShowMessagePopup");
+                TempData.Remove("PopupMessage");
+            }
+
+            try
+            {
+                _db.Update(item);
+                await _db.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                // catch DB exceptions and add to modal error display
+                _logger.LogError(ex, "Exception while saving new item");
+                ModelState.AddModelError("", "Unable to save changes.");
+                return View(item);
+            }
+
             return RedirectToAction(nameof(Index));
         }
 
@@ -301,7 +351,7 @@ namespace TodoWebApp.Controllers
         [HttpGet] // GET: /TodoItems/Statistics
         public async Task<IActionResult> Statistics()
         {
-            var (fastest, slowest) = await GetCompletionTimeStatsAsync();
+            var (fastest, slowest, average) = await GetCompletionTimeStatsAsync();
 
             var total = await _db.TodoItems.CountAsync();
             var completed = await _db.TodoItems.CountAsync(t => t.IsDone);
@@ -312,40 +362,63 @@ namespace TodoWebApp.Controllers
                 PendingCount = pending,
                 FastestCompletion = fastest,
                 SlowestCompletion = slowest,
+                AverageCompletion = average
             };
             return View(vm);
         }
 
         /// <summary>
         /// Returns a tuple representing the fastest and slowest time between <see cref="TodoItem.EntryDate"/>
-        /// and <see cref="TodoItem.DueDate"/>. A "CompletedDate" should be added in the future to track how 
-        /// much actual time was spent on each item as it is completed.
+        /// and <see cref="TodoItem.DueDate"/>. Also <see cref="TodoItem.CompletedDate"/> will be returned as an average.
         /// </summary>
-        async Task<(string? Fastest, string? Slowest)> GetCompletionTimeStatsAsync()
+        async Task<(string? Fastest, string? Slowest, string? Average)> GetCompletionTimeStatsAsync()
         {
-            // Fetch only completed items with non-null CompletedDate
-            var items = await _db.TodoItems
-                .Where(t => t.IsDone && t.DueDate.HasValue)
-                .Select(t => new
-                {
-                    Created = t.EntryDate,
-                    Completed = t.DueDate
-                })
+            #region [Previous]
+            // Fetch only completed items with non-null CompletedDate.
+            // Returns a List<new { DateTime? Created, DateTime? Due, DateTime? Completed}>?
+            //var items = await _db.TodoItems
+            //    .Where(t => t.IsDone && t.CompletedDate.HasValue)
+            //    .Select(t => new {
+            //        Created = t.EntryDate,
+            //        Due = t.DueDate,
+            //        Completed = t.CompletedDate,
+            //    }).ToListAsync();
+
+            // Verify we have completed items.
+            //if (!items.Any())
+            //    return (string.Empty, string.Empty, string.Empty);
+
+            // Project durations.
+            //var durations = items.Select(x => x.Completed - x.Created);
+
+            //var fast = durations.Min();
+            //var slow = durations.Max();
+            #endregion
+
+            // Only grab completed items with a timestamp.
+            var durations = await _db.TodoItems
+                .Where(t => t.IsDone && t.CompletedDate.HasValue)
+                .Select(t => t.CompletedDate.Value - t.EntryDate)
                 .ToListAsync();
 
-            // No completed items?
-            if (!items.Any())
-                return (string.Empty, string.Empty);
 
-            // Project durations
-            var durations = items
-                .Select(x => x.Completed - x.Created);
+            // Make sure we have some results.
+            if (!durations.Any())
+                return (string.Empty, string.Empty, string.Empty);
 
+            // min / max
             var fast = durations.Min();
             var slow = durations.Max();
 
-            // Return min and max
-            return (Fastest: fast.ToReadableTime(), Slowest: slow.ToReadableTime());
+            // average via ticks
+            var avgTicks = durations.Where(ts => ts.HasValue).Average(ts => ts.Value.Ticks);
+            if (avgTicks.IsInvalid())
+                avgTicks = 0d;
+
+            var average = TimeSpan.FromTicks(Convert.ToInt64(avgTicks));
+
+            // return min, max, and avg
+            return (Fastest: fast.ToReadableTime(), Slowest: slow.ToReadableTime(), Average: ((TimeSpan?)average).ToReadableTime());
         }
 
         #region [Original/Default Methods]
