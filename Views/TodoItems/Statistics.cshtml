@@ -17,7 +17,7 @@
         <p><strong>Slowest:</strong> @Model.SlowestCompletion</p>
         <p><strong>Average:</strong> @Model.AverageCompletion</p>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-5">
         <canvas id="statsChart"></canvas>
     </div>
 
@@ -37,7 +37,7 @@
     <!-- Chart.js CDN https://cdn.jsdelivr.net/npm/chart.js -->
     <script src="/lib/chart/chart.js"></script>
 
-@* [PIE CHART]
+    @* [PIE CHART] *@
     <script>
         const ctx = document.getElementById('statsChart').getContext('2d');
 
@@ -53,20 +53,25 @@
               backgroundColor: [
                 'rgba(40, 167, 69, 0.75)',   // green
                 'rgba(1, 140, 250, 0.75)'    // blue
-              ]
+              ],
+              borderColor: [
+                'rgba(245, 245, 245, 1)',
+                'rgba(245, 245, 245, 1)'
+              ],
+              borderWidth: 2
             }]
           },
           options: {
             responsive: true,
             plugins: {
-              legend: { position: 'bottom' }
+              legend: { position: 'bottom' },
+              title: { display: true, text: 'Completed vs. Pending Tasks' }
             }
           }
         });
     </script> 
-*@
 
-@* [BAR CHART] *@
+@* [BAR CHART] 
     <script>
         const ctx = document.getElementById('statsChart').getContext('2d');
 
@@ -121,5 +126,5 @@
           }
         });
     </script>
-
+*@
 }

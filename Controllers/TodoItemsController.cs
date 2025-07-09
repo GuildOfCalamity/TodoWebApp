@@ -401,7 +401,6 @@ namespace TodoWebApp.Controllers
                 .Select(t => t.CompletedDate.Value - t.EntryDate)
                 .ToListAsync();
 
-
             // Make sure we have some results.
             if (!durations.Any())
                 return (string.Empty, string.Empty, string.Empty);
@@ -410,7 +409,7 @@ namespace TodoWebApp.Controllers
             var fast = durations.Min();
             var slow = durations.Max();
 
-            // average via ticks
+            // calculate average using ticks
             var avgTicks = durations.Where(ts => ts.HasValue).Average(ts => ts.Value.Ticks);
             if (avgTicks.IsInvalid())
                 avgTicks = 0d;
