@@ -123,3 +123,9 @@ PM> dotnet ef database update
     DECLARE @result int;
     EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
     SELECT @result
+
+
+    [Example of adding the new TodoItem.LinkUrl to existing SQL DB after creating the property]
+    ===========================================================================================
+    PS> dotnet ef migrations add AddLinkUrlToTodoItem
+    PS> dotnet ef database update

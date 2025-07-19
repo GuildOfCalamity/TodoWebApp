@@ -26,6 +26,10 @@ namespace TodoWebApp.Models
         [DataType(DataType.Date)]
         public DateTime? CompletedDate { get; set; }
 
+        [DataType(DataType.Url)]
+        //[Url(ErrorMessage = "Please enter a valid URL starting with http:// or https://")]
+        public string? LinkUrl { get; set; } // make sure this is nullable so the binder knows it's optional
+
         public override string ToString() => $"{Id} => {Title} => {IsDone} => {EntryDate} => {DueDate}";
     }
 

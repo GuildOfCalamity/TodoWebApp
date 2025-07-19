@@ -155,6 +155,12 @@ namespace TodoWebApp.Controllers
                 item.EntryDate = DateTime.Now;
             }
 
+            // We want to allow an empty string for the LinkUrl field.
+            // If you can't make the TodoItem.LinkUrl a nullable string
+            // in the database side, your other option is to remove the
+            // built-in 'required' error so empty strings are allowed:
+            //ModelState.Remove(nameof(item.LinkUrl));
+
             if (!ModelState.IsValid)
             {
                 #region [Show modal/popup dialog if issue detected]
