@@ -26,6 +26,17 @@
         <textarea asp-for="Details" class="form-control font-monospace" rows="10"></textarea>
         <span asp-validation-for="Details" class="text-danger"></span>
     </div>
+
+    <div class="mb-3">
+        <label asp-for="LinkUrl" class="form-label"></label>
+        <div class="input-group">
+            <input asp-for="LinkUrl" type="url" class="form-control" placeholder="https://example.com" id="linkUrlInput" />
+            <a href="#" target="_blank" id="linkPreview" class="btn btn-outline-secondary" style="display:none;">Open</a>
+        </div>
+        <span asp-validation-for="LinkUrl" class="text-danger"></span>
+    </div>
+
+
     <div class="mb-3 form-check">
         <input asp-for="IsDone" class="form-check-input checkbox-lg-create" />
         <label asp-for="IsDone" class="form-check-label">Is it done?</label>
@@ -95,4 +106,28 @@
             </script>
         </text>
     }
+
+    @* For the link preview functionality, we need to add a script that updates the link preview based on the input value. *@
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const input  = document.getElementById('linkUrlInput');
+          const preview = document.getElementById('linkPreview');
+
+          function updatePreview() {
+            const url = input.value.trim();
+            // basic check for http/https
+            if (/^https?:\/\/\S+$/.test(url)) {
+              preview.href = url;
+              preview.style.display = 'inline-block';
+            } else {
+              preview.style.display = 'none';
+            }
+          }
+          // update on load in case model has a value
+          updatePreview();
+          // update on user input
+          input.addEventListener('input', updatePreview);
+        });
+    </script>
+
 }
